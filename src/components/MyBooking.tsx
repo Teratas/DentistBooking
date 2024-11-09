@@ -84,7 +84,7 @@ export default function MyBooking() {
     console.log(bookingData)
     const date = (bookingData ==undefined) ? '' : (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
     return (
-        <div className="text-black absolute w-[50vw] h-[30vh] bg-white top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
+        <div className=" absolute w-[50vw] h-[30vh] bg-amber-100 text-amber-800 top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
 
                 {
                     bookingData ?

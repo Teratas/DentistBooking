@@ -74,7 +74,7 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
         <div className='text-black'>
             <div className='font-serif relative m-auto w-[80vw] rounded-3xl h-[80vh] bg-slate-200'>
             <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-cyan-300 to-slate-100'>
-                <div className='top-[65%] left-[45%] absolute'>
+                <div className='top-[58%] left-[45%] absolute'>
                     <div className='flex flex-row'>
                         <div className='text-xl font-bold'>                <input defaultValue={dentist.name} ref={name} type="text" name="name" placeholder="Dentist's Name" required /></div>
 
@@ -82,8 +82,8 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                 </div>
                 <div className='top-[80%] left-[45%] text-lg absolute'>
                     <div className='flex flex-ro'>
-                        <div>
-                        <input defaultValue={dentist.expertist} ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
+                        <div className=''>
+                            <input defaultValue={dentist.expertist} ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
 
                         </div>
                         
@@ -135,8 +135,8 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
 
 
                 </div>
-                <div className='w-[80%] bottom-[5%] left-[50%] translate-x-[-50%] absolute h-[7%] '>
-                    <button onClick={handleEdit} className='w-full h-full bg-lime-500 rounded-lg'>Edit Appointment</button>
+                <div className='w-[80%] bottom-[4%] left-[50%] translate-x-[-50%] absolute h-[8%] '>
+                    <button onClick={handleEdit} className='w-full h-full bg-lime-500 rounded-lg'>Edit Dentist</button>
                 </div>
             </div>
             

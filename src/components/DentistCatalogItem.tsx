@@ -23,7 +23,7 @@ export default function DentistCatalogItem({data} :{data : dataType}){
 
     return (
 
-            <div className='flex flex-col relative w-[95vw] h-[20vh] rounded-lg'>
+            <div className='flex flex-col relative w-[40vw] h-[20vh] rounded-lg'>
 
             <Link href={`/dentistPage/${data.id}`}>
                     <div className='font-serif absolute w-full h-[100%] bg-white'>
