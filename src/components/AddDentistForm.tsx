@@ -55,13 +55,16 @@ export default function AddDentistForm() {
    
 
     const handleSubmit = async () => {
-        // console.log((name.current ==null) ? '' : name.current.value)
         const nameData = name?.current?.value
         const hospitalData = hospital?.current?.value
         const addressData = address?.current?.value
         const expertistData = expertist?.current?.value
         const telData = tel?.current?.value
         const pictureData = picture?.current?.value
+        if(nameData == null|| hospitalData == null|| addressData == null|| expertistData == null||telData == null|| pictureData == null) {
+            alert('Please Correct your Information')
+            return;
+        }
         const newData : dataType = {
 
             name : (nameData == undefined) ? '' : nameData,
@@ -72,11 +75,21 @@ export default function AddDentistForm() {
             picture : (pictureData == undefined) ? '' : pictureData,
             
         }
+        
         const res = await createNewDentist((token == null) ? '' : token, newData)
-        if(res) dispatch(addDentist(newData))
-        else alert('Sorry Failed to add Dentist')
+        console.log(res.data)
+        console.log(res)
+        if(res.success) {
+            dispatch(addDentist(res.data))
+            alert('Create New Dentist Successful')
+        }
+        else {
+            alert('Sorry Failed to add Dentist')
+            return;
+        }
         console.log(res)
         console.log(newData)
+        location.href = "http://localhost:3000/dentistPage";
     }
     return (
         <div>

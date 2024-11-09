@@ -16,5 +16,5 @@ export default async function createNewDentist(token : string,dentistData : data
             picture : dentistData.picture
         })
     })
-    return res.ok;
+    return res.json();
 }

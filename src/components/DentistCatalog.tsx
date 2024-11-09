@@ -10,17 +10,14 @@ export default function DentistCatalog() {
     // const array = dentistArray;
     console.log(array)
     return (
-        <div className='text-black mt-[50px] bg-gray-100 h-[100vh]'>
-
-            <div className='w-full'>
-                <div className='flex flex-row mx-auto'>
-                    {
-                        array.map((data : dataType, index : number) => (
-                         <DentistCatalogItem key={index} data={data} />
-                        ))
-                    }
-                </div>
-            </div>
+        <div className='flex flex-row flex-wrap'>
+            {
+                array.map(data => 
+                        <div className='px-2 py-2'>
+                            <DentistCatalogItem data={data}/>
+                        </div>
+                    )
+            }
         </div>
     );
 }

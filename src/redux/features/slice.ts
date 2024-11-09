@@ -1,18 +1,20 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { bookingType } from "@/components/MyBooking";
 import { dataType } from "@/libs/updateDentistProfile";
+
 export type state = {
     bookingItem : [],
     token : string,
     userId : string,
-    myBooking : bookingType[],
-    allDentist : dataType[]
+    allBooking : bookingType[],
+    allDentist : dataType[],
+
 }
 const initialState : state = {
     bookingItem : [],
     token : '',
     userId : '',
-    myBooking : [],
+    allBooking : [],
     allDentist : [],
 }
 export const slice = createSlice({
@@ -29,7 +31,7 @@ export const slice = createSlice({
             state.userId = action.payload;
         },
         setMyBooking(state, action : PayloadAction<bookingType[]>) {
-            state.myBooking = action.payload
+            state.allBooking = action.payload
         },
         setAllDentist(state, action : PayloadAction<dataType[]>){
             state.allDentist = action.payload
@@ -38,11 +40,40 @@ export const slice = createSlice({
             state.allDentist.push(action.payload);
 
         },
-        removeDentist(state, action : PayloadAction<dataType[]>){
-            state.allDentist = action.payload
+        removeDentist(state, action : PayloadAction<string>){
+            const needDel = action.payload
+            const newData = state.allDentist.filter((data) => data.id != needDel)
+            state.allDentist = newData
+        },
+        changedentistData(state, action: PayloadAction<{data : dataType, id : string}>) {
+            const currentData = state.allDentist.map((data) => {
+                if(data.id == action.payload.id){
+                    return action.payload.data
+                }
+                else return data
+            } )
+            state.allDentist = currentData
+        },
+        removeBooking(state, action : PayloadAction<string>) {
+            const needDel = action.payload
+            const newData = state.allBooking.filter((data) => data._id !== needDel)
+            state.allBooking = newData;
+        },
+        addBooking(state, action : PayloadAction<bookingType>){
+            state.allBooking.push(action.payload)
+        },
+        changeBooking(state, action : PayloadAction<{bookingDate : string, userId : string}>){
+            const newData = state.allBooking.map((data) => {
+                if(data.user == action.payload.userId){
+                    data.bookingDate = action.payload.bookingDate
+                    return data
+                }
+                else return data;
+            })
+            state.allBooking = newData
         }
     }
 })
 
-export const {addDentist, removeDentist, setAllDentist, setMyBooking,setToken, createUser, setUserId} = slice.actions
+export const {changeBooking, addBooking,removeBooking,changedentistData, addDentist, removeDentist, setAllDentist, setMyBooking,setToken, createUser, setUserId} = slice.actions
 export default slice.reducer

@@ -12,34 +12,42 @@ export default function MainPageNavigateBar(){
     const [pageState, setPageState] = useState<number>(pageStateRef.current)
     const {data : session, status} = useSession();
     const role = sessionStorage.getItem('role');
+    // if(location.href == 'http://localhost:3000/main') set
     console.log(role)
     return (
-        <div className={`w-full select-none cursor-default ${styles.cursorNavigate}`}>
-            <div className='bg-red-200 flex flex-row rounded-md mx-auto w-[80%] h-[50px] z-30 top-[4%] translate-x-[-50%] translate-y-[-50%] left-[50%] bg-neutral-300 fixed'>
-                <Link onClick={() => {setPageState(0); pageStateRef.current = 0}} className={`hover:animate-bounce py-3 px-5 text-center ${(pageState == 0) ? 'bg-black rounded-xl' : ''} `} href='/main'>
+        <div className={`font-serif w-full select-none cursor-default z-30 ${styles.cursorNavigate}`}>
+            <div className=' text-black  flex flex-row-reverse rounded-md mx-auto w-[100%] h-[50px] z-30 top-[4%] translate-x-[-50%] translate-y-[-50%] left-[50%] fixed'>
+                {
+                                session ?
+                                <Link className={` py-3 px-5 text-center `} href='/api/auth/signout'>Log-Out</Link>
+                                :
+                                <Link className={` py-3 px-5 text-center `} href='/api/auth/signin'>Log-In</Link>
+
+                }
+                <Link href='/dentistPage' onClick={() => {setPageState(3); pageStateRef.current  = 3}} 
+                className={` relative mt-auto py-3 px-5 text-center  ${(pageState == 3) ? 'bg-black text-white rounded-full' : ''} `}>
+                    Dentists
+                {/* <div className='hover:bg-blackabsolute bg-black w-[1px] left-[20%] h-[2px]'></div> */}
+                </Link>
+
+                {
+                    (role == 'admin') ?
+                    <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={` py-3 px-5 text-center ${(pageState == 1) ? 'bg-black text-white rounded-full' : ''}`}>All-Booking</Link>
+
+                    :
+                    <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={` py-3 px-5 text-center ${(pageState == 1) ? 'bg-black text-white rounded-full' : ''} `}>My-Booking</Link>
+
+                }
+                 <Link onClick={() => {setPageState(2); pageStateRef.current = 2;}} className={`${styles.navigate}  py-3 px-5 text-center ${(pageState == 2) ? 'bg-black text-white rounded-full' : ''} `} href='/myProfile'>My-Profile</Link>
+
+                <Link onClick={() => {setPageState(0); pageStateRef.current = 0}} className={`  py-3 px-5 text-center ${(pageState == 0) ? 'bg-black text-white rounded-full' : ''}`} href='/main'>
                     {/* <div className='bg-black h-full rounded-lg'> */}
                         Homepage
                     {/* </div> */}
                 </Link>
-                {
-                    (role == 'admin') ?
-                    <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={`hover:animate-bounce py-3 px-5 text-center ${(pageState == 1) ? 'bg-black rounded-xl' : ''} `}>All-Booking</Link>
+                
 
-                    :
-                    <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={`hover:animate-bounce py-3 px-5 text-center ${(pageState == 1) ? 'bg-black rounded-xl' : ''} `}>My-Booking</Link>
-
-                }
-                <Link onClick={() => {setPageState(2); pageStateRef.current = 2;}} className={`${styles.navigate} hover:animate-bounce py-3 px-5 text-center ${(pageState == 2) ? 'bg-black rounded-xl' : ''} `} href='/myProfile'>My-Profile</Link>
-                <Link href='/dentistPage' onClick={() => {setPageState(3); pageStateRef.current  = 3}}className={`hover:animate-bounce py-3 px-5 text-center ${(pageState == 3) ? 'bg-black rounded-xl' : ''} `}>Dentists</Link>
-
-                {/* {
-                    (role == 'admin') ?
-                    <Link href='/adminDentist' onClick={() => {setPageState(3); pageStateRef.current  = 3}}className={`hover:animate-bounce py-3 px-5 text-center ${(pageState == 3) ? 'bg-black rounded-xl' : ''} `}>AdminPage</Link>
-                    :
-                    ''
-                } */}
-                <div className='group absolute right-0' onClick={() => setDropClick(!dropClick)}>
-                {/* <div className="px-5 py-3">Test</div> */}
+                {/* <div className='group right-0' onClick={() => setDropClick(!dropClick)}>
                     <div className='px-10 w-[100px]'>
                         <Image alt='' src={assets.dropdownIcon} className="w-[75%] py-2"/>
                     </div>
@@ -55,7 +63,7 @@ export default function MainPageNavigateBar(){
                         </div>
 
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

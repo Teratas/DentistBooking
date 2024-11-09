@@ -6,5 +6,5 @@ export default async function deleteDentistProfile(id : string, token : string){
         }
     })
     if(!response.ok) throw new Error('Failed to Delete')
-    return 'The dentist was successfully deleted';
+    return response.json()
 }

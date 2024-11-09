@@ -5,6 +5,7 @@ export default function MainPage() {
     return (
         <main className='text-black'>
             <MainBanner />
+            
             <MainSlideBar />
         </main>
     );

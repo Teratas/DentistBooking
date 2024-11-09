@@ -3,10 +3,14 @@
     to {background-color: rgb(73, 230, 230);}
 } */
 
-.navigate:hover {
-    /* animation-name : navigateBar;
-    animation-duration: 1s;
-    animation-iteration-count: infinite; */
+.navigateItem:hover {
+    opacity: 1;
+    width : 100%;
+
+}
+.navigateItem {
+    transition : width 1s;
+    opacity : 0;
 }
 
 /* .cursorNavigate:hover {

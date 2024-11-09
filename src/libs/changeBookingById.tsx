@@ -1,7 +1,8 @@
-export default async function changeBookingById({id, token, bookingDate} : {id:string, token:string, bookingDate : string}){
+export default async function changeBookingById(id : string, token : string, bookingDate : string){
     const res=await fetch(`https://wai-mai-nong-new.vercel.app:443/api/v1/bookings/${id}`, {
-        method : 'POST',
+        method : 'PUT',
         headers : {
+            'Accept' : '*/*',
             authorization : `Bearer ${token}`,
             'Content-Type' : 'application/json',
         },

@@ -58,14 +58,14 @@ export default function RegisterForm() {
         // dispatch(setToken(await user.token));
     }
     return (
-        <div className='cursor-default select-none font-serif text-black w-[50%] h-[100%] absolute bg-white'>
+        <div className='cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>
             <div className='h-[25%]'>
                 <div className='px-3 py-5 text-2xl'>Logo</div>
             </div>
             <div className='w-[50%] m-auto'>
                 <div className='m-auto'>
                     <div className='absolute'>
-                        <div className='text-xl'>Sign Up to WaiMaiNong</div>
+                        <div className='text-xl'>Sign In to WaiMaiNong</div>
                     </div>
                     <div className='py-10'>
                         <form action="">

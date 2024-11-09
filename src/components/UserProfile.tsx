@@ -12,41 +12,27 @@ export default function UserProfile() {
     const name = sessionStorage.getItem('name')
     const email = sessionStorage.getItem('email')
     const tel = sessionStorage.getItem('tel')
-
+    // const role = sessionStorage.getItem('role')
     const {data : session, status} = useSession();
     // const user = useAppSelector(state => state.slice.user)
     // const user = getData((token == null) ? '' : token)
     // console.log(user)
     return (
-        <div className="h-full py-[80px]">
-            {/* <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 "> */}
-                                        {/* <Image src={assets.picon} className='m-auto my-5 w-[50%]' alt='' /> */}
-
-                <div className=' text-center h-[500px] bg-white m-auto w-[75%] border-2 border-black z-20 rounded-lg'>
-                    {/* <div>Profile</div> */}
-                    <div className="h-[30%] bg-gradient-to-r from-purple-500 to-pink-500">
-                        <div className='absolute mx-[5%] w-[150px] top-[20%] h-[150px] bg-gray-500 rounded-full'></div>
-
+            <div className='flex flex-row absolute  w-[50vw] h-[20vh] left-[50%] top-[20vh] translate-x-[-50%] rounded-lg'>
+                <div className='font-serif absolute w-full h-[100%] bg-white'>
+                    <div className=' top-[10%] left-[40%] absolute'>
+                        
+                        <div className='text-lg text-bold'>{name}</div>
+                        <div>{email}</div>
+                        <div>{tel}</div>
                     </div>
-                    {/* <div className='h-[1]'> */}
-                        {/* <div className='absolute mx-[5%] w-[150px] top-[10%] h-[150px] bg-gray-500 rounded-full'></div> */}
-                    {/* </div> */}
-                    <div className='flex flex-row h-[70%]'>
-                        <div className='text-center text-white flex flex-col w-[40%] bg-black'>
-                            <div className='mt-[90px]'>{`${name}`}</div>
-                            <div>{`Email: ${email}`}</div>
-                            <div>{`tel: ${tel}`}</div>
-                            
-                        </div>
-                        <div className='w-[60%] bg-red-50'></div>
+                    <div className='absolute bg-black w-[33%] h-[90%] left-2 top-[50%] translate-y-[-50%]'>
+
                     </div>
                 </div>
-                {/* {
-                                session? <div>{name}</div> : ''
-                            } */}
-            {/* </div> */}
-            
-        </div>
+
+            </div>
+
     );
 }
 
