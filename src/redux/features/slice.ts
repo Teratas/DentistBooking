@@ -71,9 +71,25 @@ export const slice = createSlice({
                 else return data;
             })
             state.allBooking = newData
+        },
+        removeDentistAttackBooking(state, action : PayloadAction<string>) {
+            const newBookingArray = state.allBooking.filter((data) => 
+                data.dentist.id != action.payload
+            )
+            state.allBooking = newBookingArray
+        },
+        editDentistAttackBooking(state, action  : PayloadAction<dataType>){
+            const newBookingArray = state.allBooking.map((data)=> {
+                if(data.dentist.id == action.payload.id){
+                    data.dentist = action.payload
+                    return data
+                }
+                else return data
+            })
+            state.allBooking = newBookingArray
         }
     }
 })
 
-export const {changeBooking, addBooking,removeBooking,changedentistData, addDentist, removeDentist, setAllDentist, setMyBooking,setToken, createUser, setUserId} = slice.actions
+export const {editDentistAttackBooking, removeDentistAttackBooking, changeBooking, addBooking,removeBooking,changedentistData, addDentist, removeDentist, setAllDentist, setMyBooking,setToken, createUser, setUserId} = slice.actions
 export default slice.reducer

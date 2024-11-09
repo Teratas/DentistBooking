@@ -10,6 +10,7 @@ export interface dentistProfileType {
     picture : string,
     id? : string,
 }
+import { removeDentistAttackBooking } from "@/redux/features/slice";
 import createNewBookingDid from "@/libs/createNewBookingDid";
 import { changedentistData ,removeDentist, addBooking} from "@/redux/features/slice";
 import { AppDispatch } from "@/redux/store";
@@ -29,7 +30,8 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
 
     const deleteDentist = async () => {
         const res = await deleteDentistProfile(did,(token == null) ? '' : token)
-        dispatch(removeDentist(did))
+        dispatch(removeDentist(did));
+        dispatch(removeDentistAttackBooking(did));
         alert(res)
         location.href = "http://localhost:3000/dentistPage";
     }

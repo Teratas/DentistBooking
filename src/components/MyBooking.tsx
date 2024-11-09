@@ -1,6 +1,7 @@
 'use client'
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { changeBooking } from "@/redux/features/slice";
 import { useSelector } from "react-redux";
 import getAllBooking from "@/libs/getAllBooking";
 import { useAppSelector } from "@/redux/store";
@@ -15,7 +16,9 @@ export interface bookingType {
     dentist: dataType;
     _id? : string
 }
-
+import { removeBooking } from "@/redux/features/slice";
+import { AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
 export default function MyBooking() {
     // const bookingData = await getAllBooking(token || '');
     // const bookingArray: Array<bookingType> = bookingData.data;
@@ -34,10 +37,52 @@ export default function MyBooking() {
     // const handleDelete = async () => {
     //     const res = await deleteBookingById()
     // }
+    const handleEditBooking = async () => {
+        if(userId == null){
+            alert('Cannot Find UserID')
+            return;
+        }
+        const bookingDate = newAppointmentRef.current?.value
+
+        if(token == null || bookingDate == undefined || !bookingData._id){
+            alert('Failed to Edit This Booking')
+            return;
+        }
+        alert(bookingDate)
+        const res = await changeBookingById(bookingData._id, token, bookingDate)
+        console.log(res)
+        // const bookingData= res.data
+        if(res.success){
+            dispatch(changeBooking({bookingDate, userId}))
+            alert('Edit Booking Success')
+        }
+        else{
+            alert('Failed to edit this booking')
+        }
+    }
+    const token = sessionStorage.getItem('token');
+    const dispatch = useDispatch<AppDispatch>()
+    const handleDelete = async () => {
+        if(!bookingData._id){
+            alert('Booking Data not found')
+            return;
+        }
+        const res = await deleteBookingById(bookingData._id, token ?? '');
+        console.log(res)
+        if(res.success) {
+            dispatch(removeBooking(bookingData._id))
+            alert('Delete booking Success!');
+            // location.href = 'http://localhost:3000/myBooking/'
+
+        }
+        else{
+            alert('Failed to Delete This Booking')
+        }
+    }
     const upateDate = (bookingData == undefined) ? '' : new Date(bookingData.createdAt).toDateString()
     console.log(bookingArray)
     console.log(bookingData)
-    const date = (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
+    const date = (bookingData ==undefined) ? '' : (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
     return (
         <div className="text-black absolute w-[50vw] h-[30vh] bg-white top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
 
@@ -71,10 +116,15 @@ export default function MyBooking() {
                                     </div>
                                 </div>
                                 <div className='z-20 w-[20%] h-[15%] text-white absolute right-2 top-1'>
-                                    <button className='z-20 absolute bg-rose-600 w-full h-full'>Delete</button>
+                                    {
+                                        (isEdit == false)?
+                                        <button onClick={handleDelete} className='z-20 absolute bg-rose-600 w-full h-full'>Delete</button>
+                                        :
+                                        <button onClick={handleEditBooking} className='z-20 absolute bg-lime-600 w-full h-full'>Confirm</button>
+                                    }
                                 </div>
                                 <div className='z-20 w-[20%] h-[15%] text-white absolute left-2 top-1'>
-                                    <button onClick={() => {setIsEdit(!isEdit)}} className='z-20 absolute bg-lime-600 w-full h-full'>Edit</button>
+                                    <button onClick={() => {setIsEdit(!isEdit)}} className='z-20 absolute bg-lime-600 w-full h-full'>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                                 </div>
                                 <div className='right-[1%] absolute bottom-[2%]'>
                                     {`Last Update : ${upateDate ?? 'Cannot Find Last Update'}`}

@@ -2,6 +2,7 @@
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { useState } from "react";
+import { editDentistAttackBooking } from "@/redux/features/slice";
 import { AppDispatch, useAppSelector } from "@/redux/store";
 import updateDentistProfile from "@/libs/updateDentistProfile";
 import { dataType } from "@/libs/updateDentistProfile";
@@ -57,10 +58,12 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
         const res = await updateDentistProfile(did, newData, token);
             
         if (res.success) {
-            // currentState[index] = sendData
-            alert('Edit successful');
+            // currentState[index] = sendData            
             dispatch(changedentistData({data : sendData, id : did}));
-            window.location.href = "/dentistPage";
+            dispatch(editDentistAttackBooking(sendData));
+            alert('Edit successful');
+
+            // window.location.href = "/dentistPage";
         } else {
             alert('Failed to edit. Please check your form.');
         }
