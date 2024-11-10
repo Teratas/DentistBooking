@@ -12,7 +12,7 @@ export default function MainBanner() {
                                 <div>
                                     Dental Care
                                 </div>
-                                <div className='text-blue-500'>
+                                <div className='text-teal-500'>
                                     Stay healthy
                                 </div>
                             </div>

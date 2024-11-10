@@ -54,11 +54,11 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
     const role = sessionStorage.getItem('role')
 
     return (
-        <div className='font-serif left-[50%] absolute w-[80vw] rounded-3xl h-[80vh] bg-slate-200'>
-            <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-cyan-300 to-slate-100'>
-                <div className='top-[65%] left-[45%] absolute'>
+        <div className='font-serif left-[50%] absolute w-[80vw] rounded-3xl h-[80vh] bg-stone-200'>
+            <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-teal-300 to-stone-100 rounded-lg'>
+                <div className='top-[40%] left-[45%] absolute'>
                     <div className='flex flex-row'>
-                        <div className='text-xl font-bold'>{`${dentist.name}`}</div>
+                        <div className='text-4xl font-bold'>{`${dentist.name}`}</div>
                         {/* {
                             (role == 'admin') ?
                         <div className='px-2 w-[50%] h-[20%]'>
@@ -72,8 +72,8 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                         } */}
                     </div>
                 </div>
-                <div className='top-[80%] left-[45%] text-lg absolute'>
-                    <div className='flex flex-ro'>
+                <div className='top-[70%] left-[45%] text-2xl absolute'>
+                    <div className='flex flex-row'>
                         <div>
                             {`${dentist.expertist}`}
                         </div>
@@ -83,9 +83,9 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                     
                 {
                     (role == 'admin') ?
-                    <div className='w-[20%] h-[30%] absolute right-2 top-2'>
+                    <div className='w-[20%] h-[30%] absolute right-5 top-5'>
                         <button onClick={(e) => {e.preventDefault(); 
-                                deleteDentist()}} className='w-full h-full bg-rose-600 rounded-lg text-white'>Delete</button>
+                                deleteDentist()}} className='w-full h-full bg-rose-600 rounded-xl text-white hover:bg-rose-500'>Delete</button>
                     </div>
                     :
                     ''
@@ -93,9 +93,9 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                 
             </div>
             <div className='z-10 w-[30%] h-[40%] absolute rounded-xl bg-black left-[10%] top-[13%]'></div>
-            <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] '>
+            <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] rounded-lg'>
                 <div className='absolute top-[5%] left-[45%] w-[50%]  z-10'>
-                    <div className='text-pretty flex flex-col space-y-2 w-full'>
+                    <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>
                         <div>
                             {`Hospital: ${dentist.hospital}`}
                         </div>
@@ -111,8 +111,8 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                 </div>
 
                 <div className='absolute w-[80%] h-[30%] bg-slate-200 rounded-lg top-[50%] left-[50%] translate-x-[-50%]'>
-                    <div className='absolute top-[-16%] text-lg'>About</div>
-                    <div className='text-sm px-2 py-2'>
+                    <div className='absolute top-[-20%] text-2xl'>About the dentist</div>
+                    <div className='text-lg px-2 py-2'>
                         {
                             `Dr. ${dentist.name}: With over 3 years of experience, Dr. ${dentist.name} specializes in ${dentist.expertist}. Known for Skill, Dr. ${dentist.name} is committed to delivering personalized care to every patient.`
                         }
@@ -120,7 +120,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                     
                 </div>
                 <div className='w-[80%] bottom-[5%] left-[50%] translate-x-[-50%] absolute h-[10%] '>
-                    <button onClick={handleCreateBooking} className='w-full h-full bg-lime-500 rounded-lg'>Make Appointment</button>
+                    <button onClick={handleCreateBooking} className='w-full h-full bg-teal-500 rounded-lg hover:bg-teal-400 hover:shadow-lg text-white'>Make Appointment</button>
                 </div>
 
             </div>

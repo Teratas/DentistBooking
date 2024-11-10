@@ -23,17 +23,17 @@ export default function DentistCatalogItem({data} :{data : dataType}){
 
     return (
 
-            <div className='flex flex-col relative w-[40vw] h-[20vh] rounded-lg'>
+            <div className='flex flex-col relative w-[40vw] h-[30vh] rounded-lg'>
 
             <Link href={`/dentistPage/${data.id}`}>
-                    <div className='font-serif absolute w-full h-[100%] bg-white'>
-                        <div className=' top-[10%] left-[40%] absolute'>
+                    <div className='font-serif absolute w-full h-[100%] bg-white rounded-2xl hover:bg-stone-100 hover:shadow-xl'>
+                        <div className=' top-[10%] left-[55%] absolute'>
                             
-                            <div className='text-lg text-bold'>{data.name}</div>
-                            <div>{data.expertist}</div>
-                            <div>{data.tel}</div>
+                            <div className='text-3xl text-bold'>{data.name}</div>
+                            <div className='text-xl text-bold'>{data.expertist}</div>
+                            <div className='text-xl text-bold'>{data.tel}</div>
                         </div>
-                        <div className='absolute bg-black w-[33%] h-[90%] left-2 top-[50%] translate-y-[-50%]'>
+                        <div className='absolute bg-black w-[45%] h-[90%] left-[3%] top-[50%] translate-y-[-50%] rounded-2xl'>
 
                         </div>
 

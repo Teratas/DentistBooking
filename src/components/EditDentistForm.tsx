@@ -73,15 +73,15 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
     return (
         <div className='text-black'>
             <div className='font-serif relative m-auto w-[80vw] rounded-3xl h-[80vh] bg-slate-200'>
-            <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-cyan-300 to-slate-100'>
-                <div className='top-[58%] left-[45%] absolute'>
+            <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-rose-400 to-teal-100 rounded-lg'>
+                <div className='top-[40%] left-[45%] absolute'>
                     <div className='flex flex-row'>
-                        <div className='text-xl font-bold'>                <input defaultValue={dentist.name} ref={name} type="text" name="name" placeholder="Dentist's Name" required /></div>
+                        <div className='text-4xl font-bold'>                <input defaultValue={dentist.name} ref={name} type="text" name="name" placeholder="Dentist's Name" required /></div>
 
                     </div>
                 </div>
-                <div className='top-[80%] left-[45%] text-lg absolute'>
-                    <div className='flex flex-ro'>
+                <div className='top-[70%] left-[45%] text-2xl absolute'>
+                    <div className='flex flex-row'>
                         <div className=''>
                             <input defaultValue={dentist.expertist} ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
 
@@ -95,9 +95,9 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
             </div>
 
             <div className='z-10 w-[30%] h-[40%] absolute rounded-xl bg-black left-[10%] top-[13%]'></div>
-            <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] '>
+            <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] rounded-lg'>
                 <div className='absolute top-[5%] left-[45%] w-[50%]  z-10'>
-                    <div className='text-pretty flex flex-col space-y-2 w-full'>
+                    <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>
                         <div>
                             {`Hospital: `}
                             <input defaultValue={dentist.hospital} ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
@@ -110,12 +110,12 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                         </div>
                         <div>
                             {`Address: `}
-                            <input defaultValue={dentist.address} ref={address} type="text" name="address" placeholder="Address" required />
+                            <input defaultValue={dentist.address} ref={address} type="text" name="address" placeholder="Address" required  className="w-full"/>
 
                         </div>
                         <div>
                             {`Change Picture Url: `}
-                            <input defaultValue={dentist.picture} ref={picture} type="text" name="picture" placeholder="Picture URL" required />
+                            <input defaultValue={dentist.picture} ref={picture} type="text" name="picture" placeholder="Picture URL" required className="w-full"/>
 
                         </div>
                         
@@ -124,8 +124,8 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                 </div>
 
                 <div className='absolute w-[80%] h-[30%] bg-slate-200 rounded-lg top-[50%] left-[50%] translate-x-[-50%]'>
-                    <div className='absolute top-[-16%] text-lg'>About</div>
-                    <div className='text-sm px-2 py-2'>
+                    <div className='absolute top-[-20%] text-2xl'>About the dentist</div>
+                    <div className='text-lg px-2 py-2'>
                         {
                             `Dr. ${dentist.name}: With over 3 years of experience, Dr. ${dentist.name} specializes in ${dentist.expertist}. Known for Skill, Dr. ${dentist.name} is committed to delivering personalized care to every patient.`
                         }
@@ -136,7 +136,7 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
 
                 </div>
                 <div className='w-[80%] bottom-[4%] left-[50%] translate-x-[-50%] absolute h-[8%] '>
-                    <button onClick={handleEdit} className='w-full h-full bg-lime-500 rounded-lg'>Edit Dentist</button>
+                    <button onClick={handleEdit} className='w-full h-full bg-teal-500 text-white hover:bg-teal-400 rounded-lg'>Edit Dentist</button>
                 </div>
             </div>
             

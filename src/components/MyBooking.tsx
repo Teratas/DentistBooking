@@ -84,16 +84,16 @@ export default function MyBooking() {
     console.log(bookingData)
     const date = (bookingData ==undefined) ? '' : (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
     return (
-        <div className=" absolute w-[60vw] h-[40vh] bg-white text-black top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
+        <div className=" absolute w-[50vw] h-[35vh] bg-white text-black top-[55vh] left-[50%] translate-x-[-50%] rounded-2xl hover:shadow-lg">
 
                 {
                     bookingData ?
                     <div className='w-full h-full relative font-serif'>
                             <div>
-                                <div className='text-xl text-center mt-2'>
+                                <div className='text-3xl text-center mt-2 p-3'>
                                     {`Appointment`}
                                 </div>
-                                <div className='mx-2 top-[20%] absolute'>
+                                <div className='mx-2 top-[20%] absolute text-lg p-5 pl-8'>
                                     <div >
                                         {`Dentist : ${bookingData.dentist.name}`}
                                     </div>
@@ -115,27 +115,28 @@ export default function MyBooking() {
                                         {`Address : ${bookingData.dentist.address}`}
                                     </div>
                                 </div>
-                                <div className='z-20 w-[20%] h-[15%] text-white absolute right-2 top-1 rounded-lg'>
+                                <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute right-2 top-1 rounded-lg mr-1'>
                                     {
                                         (isEdit == false)?
-                                        <button onClick={handleDelete} className='z-20 absolute bg-slate-400 w-full h-full rounded-lg'>Delete</button>
+                                        <button onClick={handleDelete} className='z-20 absolute bg-slate-400 hover:bg-rose-500 w-full h-full rounded-xl'>Delete</button>
                                         :
-                                        <button onClick={handleEditBooking} className='z-20 absolute bg-cyan-400 w-full h-full rounded-lg'>Confirm</button>
+                                        <button onClick={handleEditBooking} className='z-20 absolute bg-teal-500 hover:bg-teal-400 w-full h-full rounded-xl'>Confirm</button>
                                     }
                                 </div>
-                                <div className='z-20 w-[20%] h-[15%] text-white absolute left-2 top-1'>
-                                    <button onClick={() => {setIsEdit(!isEdit)}} className={`rounded-lg z-20 absolute ${(isEdit == true) ? 'bg-slate-400':'bg-cyan-400'
+                                <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute left-2 top-1 ml-1'>
+                                    <button onClick={() => {setIsEdit(!isEdit)}} className={`rounded-xl z-20 absolute ${(isEdit == true) ? 'bg-slate-400 hover:bg-rose-500':'bg-teal-500 hover:bg-teal-400'
                                     } w-full h-full`}>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                                 </div>
-                                <div className='right-[1%] absolute bottom-[2%] '>
+                                <div className='right-[1%] absolute bottom-[1%] p-8 text-lg'>
                                     {`Last Update : ${upateDate ?? 'Cannot Find Last Update'}`}
                                 </div>
                             </div>
                             
                     </div>
                 :
-                <div>
-                    No Booking Right Now
+                <div className='w-full h-full relative font-serif text-2xl text-center p-10 flex flex-col text-middle'>
+                    You currently have no bookings.
+                    <Link className="underline decoration-2 hover:text-stone-800"href={'/dentistPage'}>Schedule Your Appointment Now.</Link>
                 </div>
                 }
 

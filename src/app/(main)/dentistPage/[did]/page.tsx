@@ -13,7 +13,7 @@ export default function DentistDetailPage({params} : {params : {did : string}}) 
     
     return (
         <main className='z-0 text-black relative w-[100vw] h-[100vh]'>
-            <div className='w-[100vw] h-[100vh] bg-gradient-to-r from-slate-100 to-cyan-300 absolute'></div>
+            <div className='w-[100vw] h-[100vh] bg-gradient-to-r from-teal-100 to-stone-400 absolute'></div>
 
 
                 <div className='absolute mt-[60px]'>

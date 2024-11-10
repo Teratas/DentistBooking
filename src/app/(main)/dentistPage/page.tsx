@@ -17,7 +17,7 @@ export default function DentistPage(){
     return (
         <main className='relative text-black'>
             {/* <DentistCatalogItem /> */}
-            <div className='w-[100vw] h-[100vh] absolute bg-gradient-to-r from-slate-300 to-blue-300'>
+            <div className='w-[100vw] h-[100vh] absolute bg-gradient-to-r from-stone-400 to-teal-200'>
 
             </div>
             <div className='mt-[60px] absolute'>
@@ -30,7 +30,7 @@ export default function DentistPage(){
                         <div  className={`fixed z-30 m-auto top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ${(addState == true) ? 'block visible' : 'none hidden'}`}>
                             <AddDentistForm />
                         </div>
-                        <div className=' right-10 bottom-20 fixed'>
+                        <div className=' right-10 bottom-20 fixed text-lg hover:text-xl hover:text-slate-700'>
                             <Link href='/addDentistForm'>Add Dentist</Link>
                         </div>
                     </div>

@@ -70,16 +70,16 @@ export default function BookingItem({bookingData}:{bookingData : bookingType}) {
         }
     }
     return (
-        <div className="text-black w-[35vw] h-[20vh] z-30  rounted-lg bg-amber-100 text-amber-800	">
+        <div className="text-black w-[30vw] h-[25vh] z-30 rounded-lg bg-white text-balck rounded-xl p-[1%] hover:shadow-lg">
 
                 {
                     bookingData ?
                     <div className='w-full h-full relative font-serif'>
                             <div>
-                                <div className='text-xl text-center mt-2'>
+                                <div className='text-2xl text-center mt-2'>
                                     {`Appointment`}
                                 </div>
-                                <div className='mx-2 top-[20%] absolute'>
+                                <div className='mx-2 top-[20%] absolute p-[3%]'>
                                     <div >
                                         {`Dentist : ${bookingData.dentist.name}`}
                                     </div>
@@ -98,20 +98,21 @@ export default function BookingItem({bookingData}:{bookingData : bookingType}) {
                                         
                                     </div>
                                 </div>
-                                <div className='right-[1%] absolute bottom-[2%]'>
+                                <div className='right-[2%] absolute bottom-[8%]'>
                                     {`Last Update : ${upateDate ?? 'Cannot Find Last Update'}`}
                                 </div>
                             </div>
                             <div className='z-20 w-[20%] h-[15%] text-white absolute right-2 top-1'>
                                     {
                                         (isEdit == false)?
-                                        <button onClick={handleDelete} className='z-20 absolute bg-rose-600 w-full h-full'>Delete</button>
+                                        <button onClick={handleDelete} className='z-20 absolute bg-slate-400 hover:bg-rose-500 w-full h-full rounded-lg'>Delete</button>
                                         :
-                                        <button onClick={handleEditBooking} className='z-20 absolute bg-lime-600 w-full h-full'>Confirm</button>
+                                        <button onClick={handleEditBooking} className='z-20 absolute bg-teal-500 hover:bg-teal-400 w-full h-full rounded-lg'>Confirm</button>
                                     }
                             </div>
                             <div className='z-20 w-[20%] h-[15%] text-white absolute left-2 top-1'>
-                                    <button onClick={() => {setIsEdit(!isEdit)}} className='z-20 absolute bg-lime-600 w-full h-full'>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
+                                    <button onClick={() => {setIsEdit(!isEdit)}} className={`rounded-lg z-20 absolute ${(isEdit == true) ? 'bg-slate-400 hover:bg-rose-500':'bg-teal-500 hover:bg-teal-400'
+                                    } w-full h-full`}>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                             </div>
 
                     </div>

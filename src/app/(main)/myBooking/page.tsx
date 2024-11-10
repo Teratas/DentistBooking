@@ -14,7 +14,7 @@ export default function BookingPage() {
 
     return (
         <main className='text-black '>
-            <div className='z-0 absolute bg-gradient-to-r from-slate-200 to-cyan-400 w-[100vw] h-[100vh]'></div>
+            <div className='z-0 absolute bg-gradient-to-r from-white to-cyan-200 w-[100vw] h-[100vh]'></div>
 
             <div className='z-20 mt-[60px] absolute'>
                 <BookingCatalog />

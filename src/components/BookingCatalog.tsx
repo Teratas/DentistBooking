@@ -6,14 +6,19 @@ export default function BookingCatalog(){
     const bookingArray = useAppSelector(state => state.slice.allBooking)
     
     return (
-        <div className=' w-[75vw] flex flex-row flex-wrap'>
-            {
-                bookingArray.map(data => 
-                        <div className='px-2 py-2'>
-                            <BookingItem bookingData={data}/>
-                        </div>
-                    )
-            }
+        <div className='relavitve w-[100vw] h-full'>
+            <div className='absolute w-[95vw] h-full left-[3vw]'>
+                <div className='flex flex-row flex-wrap '>
+                    {
+                    bookingArray.map(data => 
+                            <div className='p-2'>
+                                <BookingItem bookingData={data}/>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
         </div>
+        
     );
 }

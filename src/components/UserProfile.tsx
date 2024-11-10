@@ -18,15 +18,15 @@ export default function UserProfile() {
     // const user = getData((token == null) ? '' : token)
     // console.log(user)
     return (
-            <div className='flex flex-row absolute  w-[60vw] h-[20vh] left-[50%] top-[20vh] translate-x-[-50%] rounded-lg'>
-                <div className='font-serif absolute w-full h-[100%] bg-white'>
-                    <div className=' top-[10%] left-[40%] absolute'>
+            <div className='flex flex-row absolute  w-[50vw] h-[30vh] left-[50%] top-[18vh] translate-x-[-50%] rounded-3xl hover:shadow-lg'>
+                <div className='font-serif absolute w-full h-[100%] bg-white rounded-2xl'>
+                    <div className=' top-[20%] left-[40%] absolute'>
                         
-                        <div className='text-lg text-bold'>{name}</div>
-                        <div>{email}</div>
-                        <div>{tel}</div>
+                        <div className='text-4xl text-bold'>{name}</div>
+                        <div className='text-2xl'>{email}</div>
+                        <div className='text-2xl'>{tel}</div>
                     </div>
-                    <div className='absolute bg-black w-[33%] h-[90%] left-2 top-[50%] translate-y-[-50%]'>
+                    <div className='absolute bg-black w-[33%] h-[90%] left-5 top-[50%] translate-y-[-50%] rounded-2xl'>
 
                     </div>
                 </div>

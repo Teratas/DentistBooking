@@ -15,7 +15,7 @@ export default function DentistCatalog() {
                 <div className='flex flex-row flex-wrap '>
                     {
                         array.map(data =>
-                                <div className='px-[1vw] py-[1vh]'>
+                                <div className='px-[1vw] py-[1.5vh]'>
                                     <DentistCatalogItem data={data}/>
                                 </div>
                             )
