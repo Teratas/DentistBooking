@@ -84,7 +84,7 @@ export default function MyBooking() {
     console.log(bookingData)
     const date = (bookingData ==undefined) ? '' : (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
     return (
-        <div className=" absolute w-[50vw] h-[30vh] bg-amber-100 text-amber-800 top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
+        <div className=" absolute w-[60vw] h-[40vh] bg-white text-black top-[50vh] left-[50%] translate-x-[-50%] rounted-lg bg-amber-100 text-amber-800	">
 
                 {
                     bookingData ?
@@ -115,18 +115,19 @@ export default function MyBooking() {
                                         {`Address : ${bookingData.dentist.address}`}
                                     </div>
                                 </div>
-                                <div className='z-20 w-[20%] h-[15%] text-white absolute right-2 top-1'>
+                                <div className='z-20 w-[20%] h-[15%] text-white absolute right-2 top-1 rounded-lg'>
                                     {
                                         (isEdit == false)?
-                                        <button onClick={handleDelete} className='z-20 absolute bg-rose-600 w-full h-full'>Delete</button>
+                                        <button onClick={handleDelete} className='z-20 absolute bg-slate-400 w-full h-full rounded-lg'>Delete</button>
                                         :
-                                        <button onClick={handleEditBooking} className='z-20 absolute bg-lime-600 w-full h-full'>Confirm</button>
+                                        <button onClick={handleEditBooking} className='z-20 absolute bg-cyan-400 w-full h-full rounded-lg'>Confirm</button>
                                     }
                                 </div>
                                 <div className='z-20 w-[20%] h-[15%] text-white absolute left-2 top-1'>
-                                    <button onClick={() => {setIsEdit(!isEdit)}} className='z-20 absolute bg-lime-600 w-full h-full'>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
+                                    <button onClick={() => {setIsEdit(!isEdit)}} className={`rounded-lg z-20 absolute ${(isEdit == true) ? 'bg-slate-400':'bg-cyan-400'
+                                    } w-full h-full`}>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                                 </div>
-                                <div className='right-[1%] absolute bottom-[2%]'>
+                                <div className='right-[1%] absolute bottom-[2%] '>
                                     {`Last Update : ${upateDate ?? 'Cannot Find Last Update'}`}
                                 </div>
                             </div>

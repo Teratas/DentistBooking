@@ -8,11 +8,11 @@ export default function ProfilePage() {
                     <div className='relative top-0'>
 
                         <div>
-                            <div className='text-2xl text-white font-serif absolute left-[25%] top-[16vh]'>Your Profile</div>
+                            <div className='text-2xl text-white font-serif absolute left-[20%] top-[16vh]'>Your Profile</div>
                             <UserProfile />
                         </div>
                         <div>
-                            <div className='text-2xl text-white font-serif absolute left-[25%] top-[46vh]'>
+                            <div className='text-2xl text-white font-serif absolute left-[20%] top-[46vh]'>
                                 Booking
                             </div>
                             < MyBooking/>

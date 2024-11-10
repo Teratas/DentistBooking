@@ -18,7 +18,7 @@ export default function UserProfile() {
     // const user = getData((token == null) ? '' : token)
     // console.log(user)
     return (
-            <div className='flex flex-row absolute  w-[50vw] h-[20vh] left-[50%] top-[20vh] translate-x-[-50%] rounded-lg'>
+            <div className='flex flex-row absolute  w-[60vw] h-[20vh] left-[50%] top-[20vh] translate-x-[-50%] rounded-lg'>
                 <div className='font-serif absolute w-full h-[100%] bg-white'>
                     <div className=' top-[10%] left-[40%] absolute'>
                         
