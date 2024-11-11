@@ -29,9 +29,9 @@ export default function DentistCatalogItem({data} :{data : dataType}){
                     <div data-test={`dentist-item-${data.name}`} className='font-serif absolute w-full h-[100%] bg-white rounded-2xl hover:bg-stone-100 hover:shadow-xl'>
                         <div className=' top-[10%] left-[55%] absolute'>
                             
-                            <div className='text-3xl text-bold'>{data.name}</div>
-                            <div className='text-xl text-bold'>{data.expertist}</div>
-                            <div className='text-xl text-bold'>{data.tel}</div>
+                            <div className='text-2xl text-bold'>{data.name}</div>
+                            <div className='text-lg text-bold'>{data.expertist}</div>
+                            <div className='text-lg text-bold'>{data.tel}</div>
                         </div>
                         <div className='absolute bg-black w-[45%] h-[90%] left-[3%] top-[50%] translate-y-[-50%] rounded-2xl'>
 

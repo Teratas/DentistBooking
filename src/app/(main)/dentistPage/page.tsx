@@ -15,9 +15,9 @@ export default function DentistPage(){
     const role = sessionStorage.getItem('role')
     const [addState, setAddState] = useState(false);
     return (
-        <main className='relative text-black'>
+        <main className='text-black'>
             {/* <DentistCatalogItem /> */}
-            <div className='w-[100vw] h-[100vh] absolute bg-gradient-to-r from-stone-400 to-teal-200'>
+            <div className='w-[100vw] h-[100vh] z-0 absolute bg-gradient-to-r from-stone-400 to-teal-200'>
 
             </div>
             <div className='mt-[60px] absolute'>

@@ -65,7 +65,7 @@ export default function RegisterForm() {
             <div className='w-[50%] m-auto'>
                 <div className='m-auto'>
                     <div className='absolute'>
-                        <div className='text-xl'>Sign In to WaiMaiNong</div>
+                        <div data-test = "signin-page-text" className='text-xl'>Sign In to WaiMaiNong</div>
                     </div>
                     <div className='py-10'>
                         <form action="">

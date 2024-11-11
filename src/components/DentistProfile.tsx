@@ -34,6 +34,8 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
         dispatch(removeDentistAttackBooking(did));
         alert(res)
         location.href = "http://localhost:3000/dentistPage";
+        
+        
     }
     console.log(did)
     console.log(token)

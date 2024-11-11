@@ -14,7 +14,7 @@ export default async function userLogin(userEmail : string, userPassword : strin
         }),
         
     })
-    if(!response.ok) throw new Error('Failed to fetch Hospital');
+    if(!response.ok) throw new Error('Failed to fetch Users');
 
     //if(response.ok)return await response.json();
     return await response.json();
