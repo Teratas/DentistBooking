@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function AllRegisterLoginForm(){
     const [isRegister, setIsRegister] = useState(false);
     return (
-        <div className='relative w-[100vw] h-full'>
+        <div data-test="form" className='relative w-[100vw] h-full'>
             <button onClick={() => {setIsRegister(!isRegister)}} className='fixed z-30 right-10 top-10 bg-black w-[5vw] h-[2vh]'>Register</button>
                 <div className={`${(isRegister == true) ? 'invisible' : ''} absolute w-[50vw] h-[100vh] `}>
                     <RegisterForm/>

@@ -93,13 +93,13 @@ export default function AddDentistForm() {
     }
     return (
         <div>
-                <input ref={name} type="text" name="name" placeholder="Dentist's Name" required />
-                <input ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
-                <input ref={address} type="text" name="address" placeholder="Address" required />
-                <input ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
-                <input ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
-                <input ref={picture} type="text" name="picture" placeholder="Picture URL" required />
-                <button type="submit" onClick={handleSubmit}>Add Dentist</button>
+                <input data-test="dentist-name" ref={name} type="text" name="name" placeholder="Dentist's Name" required />
+                <input data-test="dentist-hospital" ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
+                <input data-test="dentist-address" ref={address} type="text" name="address" placeholder="Address" required />
+                <input data-test="dentist-expertist" ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
+                <input data-test="dentist-tel" ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
+                <input data-test="dentist-picture" ref={picture} type="text" name="picture" placeholder="Picture URL" required />
+                <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
         </div>
     );
 }

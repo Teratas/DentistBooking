@@ -84,7 +84,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                 {
                     (role == 'admin') ?
                     <div className='w-[20%] h-[30%] absolute right-5 top-5'>
-                        <button onClick={(e) => {e.preventDefault(); 
+                        <button data-test="delete-dentist-button" onClick={(e) => {e.preventDefault(); 
                                 deleteDentist()}} className='w-full h-full bg-rose-600 rounded-xl text-white hover:bg-rose-500'>Delete</button>
                     </div>
                     :

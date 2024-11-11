@@ -29,7 +29,7 @@ export default function MainPageNavigateBar(){
                                 <Link className={` py-3 px-5 text-center `} href='/api/auth/signin'>Log-In</Link>
 
                 }
-                <Link href='/dentistPage' onClick={() => {setPageState(3); pageStateRef.current  = 3}} 
+                <Link data-test = "go-to-dentists" href='/dentistPage' onClick={() => {setPageState(3); pageStateRef.current  = 3}} 
                 className={` relative mt-auto py-3 px-5 text-center  ${(pageState == 3) ? 'bg-black text-white rounded-full' : ''} `}>
                     Dentists
                 {/* <div className='hover:bg-blackabsolute bg-black w-[1px] left-[20%] h-[2px]'></div> */}

@@ -58,7 +58,7 @@ export default function RegisterForm() {
         // dispatch(setToken(await user.token));
     }
     return (
-        <div className='cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>
+        <div data-test="login-form"className='cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>
             <div className='h-[25%]'>
                 <div className='px-3 py-5 text-2xl'>Logo</div>
             </div>
@@ -70,13 +70,13 @@ export default function RegisterForm() {
                     <div className='py-10'>
                         <form action="">
                             <div >Email</div>
-                            <TextField id="filled-basic" inputRef={emailRef}
+                            <TextField data-test="email" id="filled-basic" inputRef={emailRef}
                              label="Email" variant="filled" className='w-full'/>
                             <div className='pt-6'>Password</div>
-                            <TextField id="filled-basic" inputRef={passwordRef}
+                            <TextField data-test="password" id="filled-basic" inputRef={passwordRef}
                             label="Password" variant="filled" className='w-full'/>
 
-                            <button className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={onSubmit}>Sign In</button>
+                            <button data-test="login-button"className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={onSubmit}>Sign In</button>
                             
                             <div className='pt-5 w-[100%] m-auto'>
                                 <div className=' px-12 text-sm text-center' >or sign up with</div>

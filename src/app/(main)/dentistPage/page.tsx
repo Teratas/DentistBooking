@@ -31,7 +31,7 @@ export default function DentistPage(){
                             <AddDentistForm />
                         </div>
                         <div className=' right-10 bottom-20 fixed text-lg hover:text-xl hover:text-slate-700'>
-                            <Link href='/addDentistForm'>Add Dentist</Link>
+                            <Link data-test = "add-dentist" href='/addDentistForm'>Add Dentist</Link>
                         </div>
                     </div>
                 :''
