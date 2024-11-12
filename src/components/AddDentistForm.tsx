@@ -4,43 +4,15 @@ import dentist from "@/db/models/dentist";
 import { current } from "@reduxjs/toolkit";
 import { revalidateTag } from "next/cache";
 import { useRef } from "react";
+import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 // import createNewDentist from "@/libs/createNewDentist";
 import createNewDentist from "@/libs/createNewDentist";
 import { dataType } from "@/libs/updateDentistProfile";
 import { addDentist } from "@/redux/features/slice";
 export default function AddDentistForm() {
-    // const addDentist = async (formData : FormData) => {
-    //     'use server';
-
-    //     const name = formData.get('name');
-    //     const hospital = formData.get('hospital');
-    //     const address = formData.get('address');
-    //     const expertist = formData.get('expertist');
-    //     const tel = formData.get('tel');
-    //     const picture = formData.get('picture');
-
-    //     try {
-    //         await dbConnect();
-    //         await dentist.create({
-    //             name,
-    //             hospital,
-    //             address,
-    //             expertist,
-    //             tel,
-    //             picture
-    //         });
-    //         revalidateTag('dentistLib'); // Revalidate the cache
-    //     } catch (error) {
-    //         console.error("Error adding dentist:", error);
-    //     }
-    // };
-
-    // const handleSubmit = async (event : any) => {
-    //     event.preventDefault();
-    //     const formData = new FormData(event.target);
-    //     await addDentist(formData);
-    // };
+    
+    
     const name = useRef<HTMLInputElement>(null)
     const hospital =useRef<HTMLInputElement>(null)
 
@@ -51,7 +23,7 @@ export default function AddDentistForm() {
     const tel = useRef<HTMLInputElement>(null)
     const picture = useRef<HTMLInputElement>(null)
     const token = sessionStorage.getItem('token');
-
+    const imageRef = useRef<HTMLImageElement>()
    
 
     const handleSubmit = async () => {
@@ -92,14 +64,29 @@ export default function AddDentistForm() {
         location.href = "http://localhost:3000/dentistPage";
     }
     return (
-        <div>
-                <input data-test="dentist-name" ref={name} type="text" name="name" placeholder="Dentist's Name" required />
-                <input data-test="dentist-hospital" ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
-                <input data-test="dentist-address" ref={address} type="text" name="address" placeholder="Address" required />
-                <input data-test="dentist-expertist" ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
-                <input data-test="dentist-tel" ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
-                <input data-test="dentist-picture" ref={picture} type="text" name="picture" placeholder="Picture URL" required />
-                <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
+        <div className='absolute w-[100vw] h-[100vh]'>
+            <div className='w-full h-full relative mt-[60px]'>
+                <div className=' absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] bg-slate-300 w-[50vw] h-[50vh]'>
+                    <div className='flex flex-col absolute w-[80%] h-[5%]'>
+                        <TextField data-test="dentist-name" inputRef={name} id="standard-basic" label="Name" variant="standard" />
+                        <TextField data-test="dentist-hospital" inputRef={hospital} id="standard-basic" label="Hospital" variant="standard" />
+                        <TextField data-test="dentist-address" inputRef={address} id="standard-basic" label="Address" variant="standard" />
+                        <TextField data-test="dentist-tel" inputRef={expertist} id="standard-basic" label="Expertist" variant="standard" />
+                        <TextField data-test="dentist-picture" inputRef={tel} id="standard-basic" label="Tel" variant="standard" />
+                        <input type="file" accept="image/png, image/jpeg" />
+                        {/* <TextField data-test="dentist-picture" inputRef={picture} id="standard-basic" label="Picture" variant="standard" /> */}
+                        {/* <input data-test="dentist-name" ref={name} type="text" name="name" placeholder="Dentist's Name" required />
+                        <input data-test="dentist-hospital" ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
+                        <input data-test="dentist-address" ref={address} type="text" name="address" placeholder="Address" required />
+                        <input data-test="dentist-expertist" ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
+                        <input data-test="dentist-tel" ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
+                        <input data-test="dentist-picture" ref={picture} type="text" name="picture" placeholder="Picture URL" required /> */}
+                    </div>
+                    <div className='w-[50%] h-[5%] bg-black absolute bottom-[5%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white'>
+                        <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
