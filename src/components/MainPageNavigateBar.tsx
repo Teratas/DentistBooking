@@ -8,17 +8,15 @@ import { useEffect } from "react";
 import styles from './animation.module.css' 
 import { useSession } from "next-auth/react";
 export default function MainPageNavigateBar(){
-    const [dropClick, setDropClick] = useState<boolean>(false);
+    // const [dropClick, setDropClick] = useState<boolean>(false);
     const pageStateRef = useRef<number>(0);
     const [pageState, setPageState] = useState<number>(pageStateRef.current)
     const {data : session, status} = useSession();
     const role = sessionStorage.getItem('role');
     // if(location.href == 'http://localhost:3000/main') set
     console.log(role)
-    // useEffect(() => {
-        
-    //     ,[location.href]
-    // })
+    
+    
     return (
         <div className={`font-serif w-full select-none cursor-default z-30 ${styles.cursorNavigate}`}>
             <div className=' text-black  flex flex-row-reverse rounded-md mx-auto w-[100%] h-[50px] z-30 top-[4%] translate-x-[-50%] translate-y-[-50%] left-[50%] fixed'>
@@ -40,8 +38,7 @@ export default function MainPageNavigateBar(){
                     <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={` py-3 px-5 text-center ${(pageState == 1) ? 'bg-black text-white rounded-full' : ''}`}>All-Booking</Link>
 
                     :
-                    <Link href='/myBooking' onClick={() => {setPageState(1); pageStateRef.current  = 1}}className={` py-3 px-5 text-center ${(pageState == 1) ? 'bg-black text-white rounded-full' : ''} `}>My-Booking</Link>
-
+                    ''
                 }
                  <Link onClick={() => {setPageState(2); pageStateRef.current = 2;}} className={`${styles.navigate}  py-3 px-5 text-center ${(pageState == 2) ? 'bg-black text-white rounded-full' : ''} `} href='/myProfile'>My-Profile</Link>
 

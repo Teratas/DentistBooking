@@ -76,14 +76,14 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
             <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-rose-400 to-teal-100 rounded-lg'>
                 <div className='top-[40%] left-[45%] absolute'>
                     <div className='flex flex-row'>
-                        <div className='text-4xl font-bold'>                <input defaultValue={dentist.name} ref={name} type="text" name="name" placeholder="Dentist's Name" required /></div>
+                        <div className='text-4xl font-bold'>                <input defaultValue={dentist.name ?? ''} ref={name ?? ''} type="text" name="name" placeholder="Dentist's Name" required /></div>
 
                     </div>
                 </div>
                 <div className='top-[70%] left-[45%] text-2xl absolute'>
                     <div className='flex flex-row'>
                         <div className=''>
-                            <input defaultValue={dentist.expertist} ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
+                            <input defaultValue={dentist.expertist ?? ''} ref={expertist ?? ''} type="text" name="expertist" placeholder="Expertise" required />
 
                         </div>
                         
@@ -100,22 +100,22 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                     <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>
                         <div>
                             {`Hospital: `}
-                            <input defaultValue={dentist.hospital} ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
+                            <input defaultValue={dentist.hospital ?? ''} ref={hospital ?? ''} type="text" name="hospital" placeholder="Hospital" required />
 
                         </div>
                         <div>
                             {`Tel: `}
-                            <input defaultValue={dentist.tel} ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
+                            <input defaultValue={dentist.tel ?? ''} ref={tel ?? ''} type="tel" name="tel" placeholder="Phone Number" required />
 
                         </div>
                         <div>
                             {`Address: `}
-                            <input defaultValue={dentist.address} ref={address} type="text" name="address" placeholder="Address" required  className="w-full"/>
+                            <input defaultValue={dentist.address ?? ''} ref={address ?? ''} type="text" name="address" placeholder="Address" required  className="w-full"/>
 
                         </div>
                         <div>
                             {`Change Picture Url: `}
-                            <input defaultValue={dentist.picture} ref={picture} type="text" name="picture" placeholder="Picture URL" required className="w-full"/>
+                            <input defaultValue={dentist.picture ?? ''} ref={picture ?? ''} type="text" name="picture" placeholder="Picture URL" required className="w-full"/>
 
                         </div>
                         
@@ -127,7 +127,7 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                     <div className='absolute top-[-20%] text-2xl'>About the dentist</div>
                     <div className='text-lg px-2 py-2'>
                         {
-                            `Dr. ${dentist.name}: With over 3 years of experience, Dr. ${dentist.name} specializes in ${dentist.expertist}. Known for Skill, Dr. ${dentist.name} is committed to delivering personalized care to every patient.`
+                            `Dr. ${dentist.name ?? ''}: With over 3 years of experience, Dr. ${dentist.name ?? ''} specializes in ${dentist.expertist ?? ''}. Known for Skill, Dr. ${dentist.name ?? ''} is committed to delivering personalized care to every patient.`
                         }
                     </div>
                     

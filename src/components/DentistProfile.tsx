@@ -60,7 +60,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
             <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-teal-300 to-stone-100 rounded-lg'>
                 <div className='top-[40%] left-[45%] absolute'>
                     <div className='flex flex-row'>
-                        <div className='text-4xl font-bold'>{`${dentist.name}`}</div>
+                        <div className='text-4xl font-bold'>{`${dentist.name ?? 'No Data'}`}</div>
                         {/* {
                             (role == 'admin') ?
                         <div className='px-2 w-[50%] h-[20%]'>
@@ -77,7 +77,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                 <div className='top-[70%] left-[45%] text-2xl absolute'>
                     <div className='flex flex-row'>
                         <div>
-                            {`${dentist.expertist}`}
+                            {`${dentist.expertist ?? 'No Data'}`}
                         </div>
                         
                         </div>
@@ -99,13 +99,13 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                 <div className='absolute top-[5%] left-[45%] w-[50%]  z-10'>
                     <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>
                         <div>
-                            {`Hospital: ${dentist.hospital}`}
+                            {`Hospital: ${dentist.hospital ?? 'No Data'}`}
                         </div>
                         <div>
-                            {`Tel: ${dentist.tel}`}
+                            {`Tel: ${dentist.tel ?? 'No Data'}`}
                         </div>
                         <div>
-                            {`Address: ${dentist.address}`}
+                            {`Address: ${dentist.address ?? 'No Data'}`}
                         </div>
                         
                     </div>
@@ -116,7 +116,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                     <div className='absolute top-[-20%] text-2xl'>About the dentist</div>
                     <div className='text-lg px-2 py-2'>
                         {
-                            `Dr. ${dentist.name}: With over 3 years of experience, Dr. ${dentist.name} specializes in ${dentist.expertist}. Known for Skill, Dr. ${dentist.name} is committed to delivering personalized care to every patient.`
+                            `Dr. ${dentist.name ?? 'No Data'}: With over 3 years of experience, Dr. ${dentist.name ?? ''} specializes in ${dentist.expertist ?? ''}. Known for Skill, Dr. ${dentist.name ?? ''} is committed to delivering personalized care to every patient.`
                         }
                     </div>
                     

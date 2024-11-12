@@ -8,7 +8,7 @@ import { useAppSelector } from "@/redux/store";
 export default function AllDentistProfileAndEditForm({did} : {did:string}) {
     const allDentistArray : dataType[]= useAppSelector(state => state.slice.allDentist)
     const dentistData= allDentistArray.filter((data) => data.id === did)
-    const dentist = dentistData[0];
+    const dentist = dentistData[0] ?? {name : '', hospital : '', address : '', expertist : '', tel : '', picture : ''};
     const [editState, setEditState] = useState(false);
     const role = sessionStorage.getItem('role')
     return (
