@@ -118,13 +118,13 @@ export default function MyBooking() {
                                 <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute right-2 top-1 rounded-lg mr-1'>
                                     {
                                         (isEdit == false)?
-                                        <button onClick={handleDelete} className='z-20 absolute bg-slate-400 hover:bg-rose-500 w-full h-full rounded-xl'>Delete</button>
+                                        <button onClick={handleDelete} name = "delete"className='z-20 absolute bg-slate-400 hover:bg-rose-500 w-full h-full rounded-xl'>Delete</button>
                                         :
-                                        <button onClick={handleEditBooking} className='z-20 absolute bg-teal-500 hover:bg-teal-400 w-full h-full rounded-xl'>Confirm</button>
+                                        <button onClick={handleEditBooking} name = "confirm" className='z-20 absolute bg-teal-500 hover:bg-teal-400 w-full h-full rounded-xl'>Confirm</button>
                                     }
                                 </div>
                                 <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute left-2 top-1 ml-1'>
-                                    <button onClick={() => {setIsEdit(!isEdit)}} className={`rounded-xl z-20 absolute ${(isEdit == true) ? 'bg-slate-400 hover:bg-rose-500':'bg-teal-500 hover:bg-teal-400'
+                                    <button name ='caned'onClick={() => {setIsEdit(!isEdit)}} className={`rounded-xl z-20 absolute ${(isEdit == true) ? 'bg-slate-400 hover:bg-rose-500':'bg-teal-500 hover:bg-teal-400'
                                     } w-full h-full`}>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                                 </div>
                                 <div className='right-[1%] absolute bottom-[1%] p-8 text-lg'>
