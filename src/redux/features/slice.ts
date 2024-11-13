@@ -21,15 +21,6 @@ export const slice = createSlice({
     name : 'Slice',
     initialState,
     reducers : {
-        setToken(state, action : PayloadAction<string>) {
-            state.token = action.payload
-        },
-        createUser(state, action : PayloadAction<object>) {
-            // state.user = action.payload
-        },
-        setUserId(state, action : PayloadAction<string>) {
-            state.userId = action.payload;
-        },
         setMyBooking(state, action : PayloadAction<bookingType[]>) {
             state.allBooking = action.payload
         },
@@ -87,9 +78,13 @@ export const slice = createSlice({
                 else return data
             })
             state.allBooking = newBookingArray
+        },
+        initialSetup(state, action : PayloadAction<{dentistArray : dataType[], bookingArray : bookingType[]}>){
+            state.allBooking = action.payload.bookingArray
+            state.allDentist = action.payload.dentistArray
         }
     }
 })
 
-export const {editDentistAttackBooking, removeDentistAttackBooking, changeBooking, addBooking,removeBooking,changedentistData, addDentist, removeDentist, setAllDentist, setMyBooking,setToken, createUser, setUserId} = slice.actions
+export const {initialSetup, editDentistAttackBooking, removeDentistAttackBooking, changeBooking, addBooking,removeBooking,changedentistData, addDentist, removeDentist, setAllDentist, setMyBooking} = slice.actions
 export default slice.reducer

@@ -16,9 +16,9 @@ export default async function RegisterPage(){
 
                 <div className='h-full w-full aboslute'>
                         <AllRegisterLoginForm />
-                    <div className='pointer-events-none select-none'>
+                    {/* <div className='pointer-events-none select-none'>
                         <Image src={assets.bgLogin} className='h-[100vh]' alt='' />
-                    </div>
+                    </div> */}
                 
                 </div>
             </Suspense>

@@ -5,7 +5,7 @@ import { dataType } from "@/libs/updateDentistProfile";
 import DentistCatalogItem from "./DentistCatalogItem";
 export default function DentistCatalog() {
     // const dentistArray = await getAllDentist();
-    const array = useAppSelector(state => state.slice.allDentist)
+    const array : dataType[]= useAppSelector(state => state.slice.allDentist)
     // console.log(dentistArray)
     // const array = dentistArray;
     console.log(array)

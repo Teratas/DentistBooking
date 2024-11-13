@@ -5,7 +5,7 @@ export default function MainBanner() {
     return (
         <div data-test = "banner" className='text-black'>
                 <div className='z-0 relative w-[100vw] h-[100vh] w-[100vw]'>
-                    <Image src={assets.mainBackground} alt='' fill={true}/>
+                    {/* <Image src={assets.mainBackground} alt='' fill={true}/> */}
                     <div className=' absolute mt-[60px]'>
                         <div className='z-20 w-[50vw] absolute left-[10vw] top-[20vh]'>
                             <div className="font-bold tracking-wider font-serif text-5xl ">

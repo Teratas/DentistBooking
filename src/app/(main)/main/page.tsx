@@ -9,7 +9,6 @@ export default function MainPage() {
             <Suspense fallback={<CircularProgress />}>
                 <MainBanner />
                 
-                <MainSlideBar />
             </Suspense>
         </main>
     );
