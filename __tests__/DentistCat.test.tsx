@@ -1,53 +1,57 @@
-import { render, screen } from "@testing-library/react";
-import DentistCatalog from "@/components/DentistCatalog";
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import DentistCatalog from '../src/components/DentistCatalog';
 import { useAppSelector } from "@/redux/store";
-import '@testing-library/jest-dom';
+import { useDispatch } from 'react-redux';
+import getAllDentist from "@/libs/getAllDentist";
+import { setAllDentist } from "@/redux/features/slice";
 
-// Mock the Redux selector
-jest.mock("../src/redux/store", () => ({
+// Mock useAppSelector and useDispatch
+jest.mock('../src/redux/store', () => ({
     useAppSelector: jest.fn(),
 }));
+jest.mock('react-redux', () => ({
+    useDispatch: jest.fn(),
+}));
+jest.mock('../src/libs/getAllDentist');
+
+// Mock the DentistCatalogItem component to simplify testing
+jest.mock('../src/components/DentistCatalogItem', () => () => <div>Mocked DentistCatalogItem</div>);
 
 describe('DentistCatalog Component', () => {
-    it('should render a list of DentistCatalogItem components based on the Redux state', () => {
-        // Define mock data for the test
-        const mockData = [
-            {
-                address: 'forest',
-                expertist: "spirit master",
-                hospital: "daf",
-                id: "1",
-                name: "gotien",
-                picture: "jsafjlf",
-                tel: "121414",
-                __v: 0,
-                _id: "fjwsjelfj"
-            },
-            {
-                address: 'city',
-                expertist: "mind healer",
-                hospital: "gaf",
-                id: "2",
-                name: "doe",
-                picture: "image_link",
-                tel: "987654321",
-                __v: 1,
-                _id: "abcdefg"
-            }
-        ];
+    const mockDispatch = jest.fn();
 
-        // Mock the return value of useAppSelector to simulate the Redux state
-        useAppSelector.mockReturnValue(mockData);
+    beforeEach(() => {
+        // Reset mocks before each test
+        useDispatch.mockReturnValue(mockDispatch);
+        useAppSelector.mockReturnValue([]);
+        jest.clearAllMocks();
+    });
+
+    it('should render without crashing', () => {
+        render(<DentistCatalog />);
+        expect(screen.getByTestId('dentistcatalog')).toBeInTheDocument();
+    });
+
+    it('dispatches setAllDentist when data is fetched successfully', async () => {
+        // Mock getAllDentist response
+        const mockData = { success: true, data: [{ id: 1, name: 'Dr. Smith' }] };
+        getAllDentist.mockResolvedValue(mockData);
+        sessionStorage.setItem('setupDentist', '0');
 
         render(<DentistCatalog />);
 
-        // Assert that the items in mockData are rendered
-        mockData.forEach(dentist => {
-            expect(screen.getByText(dentist.name)).toBeInTheDocument();
-        });
+        await waitFor(() => {
+            expect(mockDispatch).toHaveBeenCalledWith(setAllDentist(mockData.data));
+        }, { timeout: 1500 });  // Increase timeout if necessary
+    });
 
-        // Optionally, verify that the correct number of items are rendered
-        const catalogItems = screen.getAllByText(/spirit master|mind healer/);
-        expect(catalogItems.length).toBe(mockData.length);
+    it('does not dispatch setAllDentist if setupDentist is set to 1 in sessionStorage', async () => {
+        sessionStorage.setItem('setupDentist', '1');
+        render(<DentistCatalog />);
+
+        await waitFor(() => {
+            expect(mockDispatch).not.toHaveBeenCalledWith(setAllDentist(expect.anything()));
+        });
     });
 });

@@ -38,7 +38,7 @@ export default function DentistCatalog() {
 
     console.log(array)
     return (
-        <div className='relavitve w-[100vw] h-full'>
+        <div data-testid = "dentistcatalog"className='relavitve w-[100vw] h-full'>
             <div className='absolute w-[90vw] h-full left-[8.5vw]'>
                 <div className='flex flex-row flex-wrap '>
                     {
