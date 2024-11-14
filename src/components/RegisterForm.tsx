@@ -38,9 +38,10 @@ export default function RegisterForm() {
             sessionStorage.setItem('name', user.name);
             sessionStorage.setItem('userId', userId);
             sessionStorage.setItem('email', user.email);
-            
-           
-            sessionStorage.setItem('setupMyProfile', '0');
+            const userData = await getUserProfile(token)
+            sessionStorage.setItem('role', userData.data.role);
+            sessionStorage.setItem('tel', userData.data.tel);
+                
             sessionStorage.setItem('setupDentist' , '0');
             sessionStorage.setItem('setupBooking', '0');
             await signIn("credentials", {

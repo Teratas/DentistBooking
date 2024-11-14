@@ -12,26 +12,7 @@ export default function UserProfile() {
     const email = sessionStorage.getItem('email') ?? ''
     const tel = sessionStorage.getItem('tel') ?? ''
     const role = sessionStorage.getItem('role') ?? 'user'
-    const token = sessionStorage.getItem('token');
-    useEffect(() => {
-        const getData = async () => {
-            if(!token ){
-                alert('Token Missing')
-
-                return;
-            }
-            if(sessionStorage.getItem('setupMyProfile') == '0'){
-                const userData = await getUserProfile(token)
-                sessionStorage.setItem('role', userData.data.role);
-                sessionStorage.setItem('tel', userData.data.tel);
-                sessionStorage.setItem('setupMyProfile', '1');
-
-            }
-            
-        }
-        getData()
-        
-    }, [])
+    
 
     return (
             <div className='flex flex-row absolute  w-[50vw] h-[30vh] left-[50%] top-[18vh] translate-x-[-50%] rounded-3xl hover:shadow-lg'>
