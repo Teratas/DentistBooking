@@ -12,6 +12,7 @@ import getAllBooking from "@/libs/getAllBooking";
 import getAllDentist from "@/libs/getAllDentist";
 import { initialSetup, setMyBooking } from "@/redux/features/slice";
 import { assets } from "public/images/assets";
+import { useRouter } from "next/navigation";
 type Props = {
     className?: string;
     callbackUrl?: string;
@@ -21,7 +22,7 @@ export default function RegisterForm() {
     const dispatch = useDispatch<AppDispatch>();
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-
+    const router = useRouter()
     const handleSubmit = useCallback(async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const email = emailRef.current?.value ?? '';
@@ -45,9 +46,10 @@ export default function RegisterForm() {
             await signIn("credentials", {
                 email,
                 password,
-                redirect: true,
+                redirect: false,
                 callbackUrl: "http://localhost:3000/main"
             });
+            router.push('/main')
         } catch (error) {
             console.error('Error during login:', error);
         }
