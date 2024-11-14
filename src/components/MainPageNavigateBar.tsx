@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRef } from "react";
-import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import styles from './animation.module.css' 
 import { useSession } from "next-auth/react";
 export default function MainPageNavigateBar(){
@@ -14,8 +14,7 @@ export default function MainPageNavigateBar(){
     const {data : session, status} = useSession();
     const role = sessionStorage.getItem('role');
     // if(location.href == 'http://localhost:3000/main') set
-    console.log(role)
-    
+    // console.log(role)
     
     return (
         <div className={`font-serif w-full select-none cursor-default z-30 ${styles.cursorNavigate}`}>
