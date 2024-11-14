@@ -2,24 +2,13 @@
 import { dataType } from "@/libs/updateDentistProfile";
 import Image from "next/image";
 import Link from "next/link";
-import updateDentistProfile from "@/libs/updateDentistProfile";
-import { useAppSelector } from "@/redux/store";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
-import deleteDentistProfile from "@/libs/deleteDentistProfile";
-import { AppDispatch } from "@/redux/store";
-import { removeDentist } from "@/redux/features/slice";
-export default function DentistCatalogItem({data} :{data : dataType}){
-    // const role = sessionStorage.getItem('role');
-    // const token = sessionStorage.getItem('token')
-    // const tokenX = (token == null) ? '' : token
-    // const currentState = useAppSelector(state => state.slice.allDentist)
 
-    // const userIdX = (userId == null) ? '' : userId
-    // console.log(token)
-    // alert(userId)
-    // console.log(data.)
+import deleteDentistProfile from "@/libs/deleteDentistProfile";
+
+export default function DentistCatalogItem({data} :{data : dataType}){
     
-    // alert(data._id)
+    const picture = data.picture
+   
 
     return (
 
@@ -33,8 +22,8 @@ export default function DentistCatalogItem({data} :{data : dataType}){
                             <div className='text-lg text-bold'>{data.expertist}</div>
                             <div className='text-lg text-bold'>{data.tel}</div>
                         </div>
-                        <div className='absolute bg-black w-[45%] h-[90%] left-[3%] top-[50%] translate-y-[-50%] rounded-2xl'>
-
+                        <div className='absolute w-[45%] h-[90%] left-[3%] top-[50%] translate-y-[-50%] rounded-full'>
+                            <Image className='w-full h-full rounded-2xl aspect-square object-cover' src={picture} alt='' fill={true}/>
                         </div>
 
 

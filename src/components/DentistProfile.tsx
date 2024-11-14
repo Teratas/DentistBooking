@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import Image from "next/image";
 import { useAppSelector } from "@/redux/store";
 export interface dentistProfileType {
     name : string,
@@ -27,7 +28,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
     console.log(dentist)
     const dispatch = useDispatch<AppDispatch>()
     const token = sessionStorage.getItem('token')
-
+    const picture = dentist.picture
     const deleteDentist = async () => {
         const res = await deleteDentistProfile(did,(token == null) ? '' : token)
         dispatch(removeDentist(did));
@@ -37,10 +38,18 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
         
         
     }
-    console.log(did)
-    console.log(token)
+
+    const allBooking = useAppSelector(state => state.slice.allBooking)
+    const user_id = sessionStorage.getItem('userId')
+    const myBooking = allBooking.filter((data) => data.user == user_id)
+    const isBook = (myBooking.length == 0) ? false : true;
+
     const bookingDate = new Date('2003-10-12')
     const handleCreateBooking = async () => {
+        if(isBook){
+            alert('Already Have Booking')
+            return;
+        }
         const res = await createNewBookingDid(did, token ?? '', bookingDate.toISOString())
         let newRes : bookingType = res.data;
         newRes.dentist = dentist
@@ -54,7 +63,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
         }
     }
     const role = sessionStorage.getItem('role')
-
+    
     return (
         <div className='font-serif left-[50%] absolute w-[80vw] rounded-3xl h-[80vh] bg-stone-200'>
             <div className='top-0 absolute w-full h-[20%] bg-gradient-to-r from-teal-300 to-stone-100 rounded-lg'>
@@ -93,8 +102,10 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                     ''
                 }
                 
+            </div> 
+            <div className='z-10 w-[30%] h-[40%] absolute rounded-xl left-[10%] top-[13%]'>
+                <Image className='w-full h-full rounded-2xl aspect-square object-cover absolute' src={picture} alt='' fill={true}/>
             </div>
-            <div className='z-10 w-[30%] h-[40%] absolute rounded-xl bg-black left-[10%] top-[13%]'></div>
             <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] rounded-lg'>
                 <div className='absolute top-[5%] left-[45%] w-[50%]  z-10'>
                     <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>

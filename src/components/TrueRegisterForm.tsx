@@ -11,7 +11,6 @@ import { FormControl, TextField, Button } from "@mui/material";
 import * as styles from'./LoginForm.module.css';
 import userLogin from "@/libs/userLogin";
 import { AppDispatch } from "@/redux/store";
-import { createUser, setAllDentist, setMyBooking, setToken, setUserId } from "@/redux/features/slice";
 
 type Props = {
     className?: string;
@@ -56,8 +55,10 @@ export default function TrueRegisterForm() {
     }
     return (
         <div className='z-20 cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>
-            <div className='h-[25%]'>
-                <div className='px-3 py-5 text-2xl'>Logo</div>
+            <div className='h-[25%] w-[5vw] relatives'>
+                <div className='absolute w-[5vw] top-[2%] left-[3%] h-full'>
+                    <Image src={assets.dentistIcon} alt=''/>
+                </div>
             </div>
             <div className='w-[50%] m-auto'>
                 <div className='m-auto'>
@@ -76,7 +77,7 @@ export default function TrueRegisterForm() {
                             <TextField id="filled-basic" inputRef={telRef}
                              label="Tel" variant="filled" className='w-full'/>
                             <div className=''>Password</div>
-                            <TextField id="filled-basic" inputRef={passwordRef}
+                            <TextField id="filled-basic" type='password' inputRef={passwordRef}
                             label="Password" variant="filled" className='w-full'/>
 
                             <button className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={onSubmit}>Sign In</button>

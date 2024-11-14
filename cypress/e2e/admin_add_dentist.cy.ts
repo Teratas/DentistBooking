@@ -13,13 +13,13 @@ describe('template spec', () => {
     //visit main
     cy.visit('/main')
     
-    cy.wait(4000)
+    cy.wait(2000)
     //login
     cy.get(`[data-test="email"]`).type("Admin@gmail.com")
     cy.get(`[data-test="password"]`).type("http1234")
     cy.get("[data-test='login-button']").click()
     //wait for login
-    cy.wait(10000)
+    cy.wait(4000)
     
     //go to dentist page
     cy.get('[data-test="go-to-dentists"]').click()
@@ -34,7 +34,7 @@ describe('template spec', () => {
     cy.get(`[data-test="dentist-tel"]`).type("893725973")
     cy.get(`[data-test="dentist-picture"]`).type("http1234.com")
     cy.get(`[data-test="add-dentist-button"]`).click()
-    cy.wait(8000)
+    // cy.wait(8000)
     //go to all dentist page
     cy.get('[data-test="go-to-dentists"]').click()
     cy.location("pathname").should('equal','/dentistPage')

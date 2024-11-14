@@ -6,11 +6,13 @@ export default function AllRegisterLoginForm(){
     const [isRegister, setIsRegister] = useState(false);
     return (
         <div data-test="form" className='relative w-[100vw] h-full'>
-            <button onClick={() => {setIsRegister(!isRegister)}} className='fixed z-30 right-10 top-10 bg-black w-[5vw] h-[2vh]'>Register</button>
+            <button onClick={() => {setIsRegister(!isRegister)}} className='hover:bg-cyan-500 fixed z-30 right-10 top-10 bg-cyan-600 w-[8vw] rounded-xl h-[4vh]'>
+                Register
+            </button>
                 <div className={`${(isRegister == true) ? 'invisible' : ''} absolute w-[50vw] h-[100vh] `}>
                     <RegisterForm/>
                 </div>
-                <div className={`${(isRegister == false) ? 'invisible' : ''} absolute w-[50vw] left-[50vw] h-[100vh]`}>
+                <div className={`${(isRegister == false) ? 'invisible' : ''} absolute w-[50vw] h-[100vh]`}>
                     <TrueRegisterForm />
                 </div>
         </div>

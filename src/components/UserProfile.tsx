@@ -1,22 +1,38 @@
 'use client'
 import Image from "next/image";
-import { assets } from "../../public/images/assets";
-import { useSession } from "next-auth/react";
-import { useAppSelector } from "@/redux/store";
+
 import getUserProfile from "@/libs/getUserProfile";
-import { useSelector } from "react-redux";
+import { assets } from "public/images/assets";
+import { useEffect } from "react";
 export default function UserProfile() {
     // const user = sessionStorage.getItem('user')
     // const user = await getUserProfile((token == null) ? '' : token);
     // console.log(user)
-    const name = sessionStorage.getItem('name')
-    const email = sessionStorage.getItem('email')
-    const tel = sessionStorage.getItem('tel')
-    // const role = sessionStorage.getItem('role')
-    const {data : session, status} = useSession();
-    // const user = useAppSelector(state => state.slice.user)
-    // const user = getData((token == null) ? '' : token)
-    // console.log(user)
+    const name = sessionStorage.getItem('name') ?? ''
+    const email = sessionStorage.getItem('email') ?? ''
+    const tel = sessionStorage.getItem('tel') ?? ''
+    const role = sessionStorage.getItem('role') ?? 'user'
+    const token = sessionStorage.getItem('token');
+    useEffect(() => {
+        const getData = async () => {
+            if(!token ){
+                alert('Token Missing')
+
+                return;
+            }
+            if(sessionStorage.getItem('setupMyProfile') == '0'){
+                const userData = await getUserProfile(token)
+                sessionStorage.setItem('role', userData.data.role);
+                sessionStorage.setItem('tel', userData.data.tel);
+                sessionStorage.setItem('setupMyProfile', '1');
+
+            }
+            
+        }
+        getData()
+        
+    }, [])
+
     return (
             <div className='flex flex-row absolute  w-[50vw] h-[30vh] left-[50%] top-[18vh] translate-x-[-50%] rounded-3xl hover:shadow-lg'>
                 <div className='font-serif absolute w-full h-[100%] bg-white rounded-2xl'>
@@ -26,9 +42,14 @@ export default function UserProfile() {
                         <div className='text-2xl'>{email}</div>
                         <div className='text-2xl'>{tel}</div>
                     </div>
-                    <div className='absolute bg-black w-[33%] h-[90%] left-5 top-[50%] translate-y-[-50%] rounded-2xl'>
-
-                    </div>
+                    <div className='absolute w-[33%] h-[90%] left-5 top-[50%] translate-y-[-50%] rounded-2xl'>
+                        {
+                        (role == 'user') ? 
+                        <Image src={assets.userIcon} alt='' fill={true}/>
+                        :
+                        <Image src={assets.adminIcon} alt='' fill={true}/>
+                        }
+                        </div>
                 </div>
 
             </div>

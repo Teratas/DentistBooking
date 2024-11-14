@@ -5,6 +5,12 @@ import profileBg from './profile_background.jpg'
 import mainBanner from './Banner.jpg'
 import mainImg from './dentist.jpg'
 import mainBackground from './mainBackground.jpg'
+import userIcon from './user_icon.svg'
+import adminIcon from './admin_icon.svg'
+import dentistIcon from './dentistIcon.svg'
+import trueMainBg from './trueMainBg.jpg'
+import trueMainBg1 from './trueMainBg1.jpg'
+import trueMainBg2 from './trueMainBg2.jpg'
 export const assets = {
     bgLogin,
     picon,
@@ -12,5 +18,11 @@ export const assets = {
     profileBg,
     mainBanner,
     mainImg,
-    mainBackground
+    mainBackground,
+    userIcon,
+    adminIcon,
+    dentistIcon,
+    trueMainBg,
+    trueMainBg1,
+    trueMainBg2
 }

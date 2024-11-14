@@ -103,7 +103,7 @@ export default function MyBooking() {
                                         <div>{`Appointment Date : ${date}`}</div>
                                         :
                                         <div>{`Appointment Date :`}
-                                            <input ref={newAppointmentRef} defaultValue={date} type="date" />
+                                            <input className='inline' ref={newAppointmentRef} defaultValue={date} type="date" />
                                         </div>
                                         }
                                         

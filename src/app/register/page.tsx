@@ -9,6 +9,8 @@ import { assets } from "../../../public/images/assets";
 export default async function RegisterPage(){
     // const res = await getDentistProfile();
     // console.log(res.data);
+    const randomIndex = Math.floor(Math.random() * 10) % 3
+    const imageArray = [assets.trueMainBg,assets.trueMainBg1,assets.trueMainBg2];
     return (
         
         <div className='relative w-[100vw] h-full'>
@@ -16,9 +18,9 @@ export default async function RegisterPage(){
 
                 <div className='h-full w-full aboslute'>
                         <AllRegisterLoginForm />
-                    {/* <div className='pointer-events-none select-none'>
-                        <Image src={assets.bgLogin} className='h-[100vh]' alt='' />
-                    </div> */}
+                    <div className='pointer-events-none select-none'>
+                        <Image src={imageArray[randomIndex]} className='h-[100vh]' alt='' />
+                    </div>
                 
                 </div>
             </Suspense>

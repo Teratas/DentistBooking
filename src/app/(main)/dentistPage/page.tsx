@@ -7,11 +7,15 @@ import DentistCatalog from "@/components/DentistCatalog";
 // import DentistCatalogItem from "@/components/dentistCatalogItem";
 import AddDentistForm from "@/components/AddDentistForm";
 import DentistCatalogItem from "@/components/DentistCatalogItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getAllDentist from "@/libs/getAllDentist";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { setAllDentist } from "@/redux/features/slice";
 export default function DentistPage(){
     // const dentistArray = await getAllDentist();
     // console.log(dentistArray)
+    
     const role = sessionStorage.getItem('role')
     const [addState, setAddState] = useState(false);
     return (

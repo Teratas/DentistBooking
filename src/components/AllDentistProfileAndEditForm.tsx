@@ -22,9 +22,15 @@ export default function AllDentistProfileAndEditForm({did} : {did:string}) {
                         <EditDentistForm did={did} dentist={dentist}/>
                     </div>
                 </div>
+                {
+                    (role == 'admin') ?
                 <div className=' w-[16vw] h-[6vh] z-20 bottom-2 right-10 absolute'>
-                    <button onClick={() => {setEditState(!editState)}} className='font-serif text-white bg-stone-500 w-full h-full rounded-xl absolute hover:bg-teal-300'>Edit</button>
+                    <button onClick={() => {
+                        setEditState(!editState)
+                    }} className='font-serif text-white bg-stone-500 w-full h-full rounded-xl absolute hover:bg-teal-300'>Edit</button>
                 </div>
+                :''
+                }
             </div>
 
 

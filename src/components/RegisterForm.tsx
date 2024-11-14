@@ -1,5 +1,5 @@
 'use client'
-
+import Image from "next/image";
 import { useRef, useMemo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
@@ -10,7 +10,8 @@ import { AppDispatch } from "@/redux/store";
 import getUserProfile from "@/libs/getUserProfile";
 import getAllBooking from "@/libs/getAllBooking";
 import getAllDentist from "@/libs/getAllDentist";
-import { initialSetup } from "@/redux/features/slice";
+import { initialSetup, setMyBooking } from "@/redux/features/slice";
+import { assets } from "public/images/assets";
 type Props = {
     className?: string;
     callbackUrl?: string;
@@ -36,16 +37,11 @@ export default function RegisterForm() {
             sessionStorage.setItem('name', user.name);
             sessionStorage.setItem('userId', userId);
             sessionStorage.setItem('email', user.email);
-
-            const [booking, userData, allDentist] = await Promise.all([
-                getAllBooking(token),
-                getUserProfile(token),
-                getAllDentist()
-            ]);
-
-            sessionStorage.setItem('role', userData.data.role);
-            sessionStorage.setItem('tel', userData.data.tel);
-            dispatch(initialSetup({bookingArray : booking.data, dentistArray : allDentist.data}))
+            
+           
+            sessionStorage.setItem('setupMyProfile', '0');
+            sessionStorage.setItem('setupDentist' , '0');
+            sessionStorage.setItem('setupBooking', '0');
             await signIn("credentials", {
                 email,
                 password,
@@ -59,8 +55,10 @@ export default function RegisterForm() {
 
     return (
         <div data-test="login-form" className='cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>
-            <div className='h-[25%]'>
-                <div className='px-3 py-5 text-2xl'>Logo</div>
+            <div className='h-[25%] w-[5vw] relatives'>
+                <div className='absolute w-[5vw] top-[2%] left-[3%] h-full'>
+                    <Image src={assets.dentistIcon} alt=''/>
+                </div>
             </div>
             <div className='w-[50%] m-auto'>
                 <div className='m-auto'>
@@ -73,21 +71,13 @@ export default function RegisterForm() {
                             <TextField data-test="email" id="filled-basic" inputRef={emailRef}
                                 label="Email" variant="filled" className='w-full' />
                             <div className='pt-6'>Password</div>
-                            <TextField data-test="password" id="filled-basic" inputRef={passwordRef}
+                            <TextField data-test="password" id="filled-basic" type="password" inputRef={passwordRef}
                                 label="Password" variant="filled" className='w-full' />
-
+                            
                             <button data-test="login-button" className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={handleSubmit}>Sign In</button>
 
-                            <div className='pt-5 w-[100%] m-auto'>
-                                <div className='px-12 text-sm text-center'>or sign up with</div>
-                            </div>
-                            <div className='mx-auto'>
-                                <div className='flex flex-row'>
-                                    <div>item1</div>
-                                    <div>item2</div>
-                                    <div>item3</div>
-                                </div>
-                            </div>
+                            
+                            
                         </form>
                     </div>
                 </div>

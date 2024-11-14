@@ -71,16 +71,11 @@ export default function AddDentistForm() {
                         <TextField data-test="dentist-name" inputRef={name} id="standard-basic" label="Name" variant="standard" />
                         <TextField data-test="dentist-hospital" inputRef={hospital} id="standard-basic" label="Hospital" variant="standard" />
                         <TextField data-test="dentist-address" inputRef={address} id="standard-basic" label="Address" variant="standard" />
-                        <TextField data-test="dentist-tel" inputRef={expertist} id="standard-basic" label="Expertist" variant="standard" />
-                        <TextField data-test="dentist-picture" inputRef={tel} id="standard-basic" label="Tel" variant="standard" />
-                        <input type="file" accept="image/png, image/jpeg" />
-                        {/* <TextField data-test="dentist-picture" inputRef={picture} id="standard-basic" label="Picture" variant="standard" /> */}
-                        {/* <input data-test="dentist-name" ref={name} type="text" name="name" placeholder="Dentist's Name" required />
-                        <input data-test="dentist-hospital" ref={hospital} type="text" name="hospital" placeholder="Hospital" required />
-                        <input data-test="dentist-address" ref={address} type="text" name="address" placeholder="Address" required />
-                        <input data-test="dentist-expertist" ref={expertist} type="text" name="expertist" placeholder="Expertise" required />
-                        <input data-test="dentist-tel" ref={tel} type="tel" name="tel" placeholder="Phone Number" required />
-                        <input data-test="dentist-picture" ref={picture} type="text" name="picture" placeholder="Picture URL" required /> */}
+                        <TextField data-test="dentist-expertist" inputRef={expertist} id="standard-basic" label="Expertist" variant="standard" />
+                        <TextField data-test="dentist-tel" inputRef={tel} id="standard-basic" label="Tel" variant="standard" />
+                        {/* <input type="file" accept="image/png, image/jpeg" /> */}
+                        <TextField data-test="dentist-picture" inputRef={picture} defaultValue={'https://drive.google.com/uc?export=view&id='} id="standard-basic" label="Picture" variant="standard" />
+                        
                     </div>
                     <div className='w-[50%] h-[5%] bg-black absolute bottom-[5%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white'>
                         <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
