@@ -34,8 +34,8 @@ export default function DentistPage(){
                         <div  className={`fixed z-30 m-auto top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ${(addState == true) ? 'block visible' : 'none hidden'}`}>
                             <AddDentistForm />
                         </div>
-                        <div className=' right-10 bottom-20 fixed text-lg hover:text-xl hover:text-slate-700'>
-                            <Link data-test = "add-dentist" href='/addDentistForm'>Add Dentist</Link>
+                        <div className=' right-10 bottom-10 fixed text-lg hover:text-xl hover:text-slate-700'>
+                            <Link data-test = "add-dentist" href='/addDentistForm'>+Add Dentist</Link>
                         </div>
                     </div>
                 :''
