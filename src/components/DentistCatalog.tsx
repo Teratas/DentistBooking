@@ -13,6 +13,7 @@ export default function DentistCatalog() {
     // const array = dentistArray;
     const dispatch = useDispatch<AppDispatch>()
     let array = useAppSelector(state => state.slice.allDentist)
+    console.log(array)
     // const initSetup = sessionStorage.getItem('setupDentist');
     
     useEffect(() => {

@@ -64,20 +64,29 @@ export default function AddDentistForm() {
         location.href = "http://localhost:3000/dentistPage";
     }
     return (
-        <div className='absolute w-[100vw] h-[100vh]'>
-            <div className='w-full h-full relative mt-[60px]'>
-                <div className=' absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] bg-slate-300 w-[50vw] h-[50vh]'>
-                    <div className='flex flex-col absolute w-[80%] h-[5%]'>
-                        <TextField data-test="dentist-name" inputRef={name} id="standard-basic" label="Name" variant="standard" />
-                        <TextField data-test="dentist-hospital" inputRef={hospital} id="standard-basic" label="Hospital" variant="standard" />
-                        <TextField data-test="dentist-address" inputRef={address} id="standard-basic" label="Address" variant="standard" />
-                        <TextField data-test="dentist-expertist" inputRef={expertist} id="standard-basic" label="Expertist" variant="standard" />
-                        <TextField data-test="dentist-tel" inputRef={tel} id="standard-basic" label="Tel" variant="standard" />
-                        {/* <input type="file" accept="image/png, image/jpeg" /> */}
-                        <TextField data-test="dentist-picture" inputRef={picture} defaultValue={'https://drive.google.com/uc?export=view&id='} id="standard-basic" label="Picture" variant="standard" />
+        <div className='font-serif absolute w-[100vw] h-[100vh]'>
+            <div className='w-full h-full relative'>
+                <div className="text-2xl absolute top-[13%]  translate-x-[-50%] left-[50%]"> Add Dentist Form</div>
+                <div className=' absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] bg-white w-[48vw] h-[63vh] py-2 rounded-xl'>
+                    
+                    <div className='flex flex-col absolute w-[80%] h-[10%]'>
+                        <div className="translate-x-[10%] m-1 w-full h-full">
+                            <div>Dentists Name</div>
+                            <TextField data-test="dentist-name" inputRef={name} id="standard-basic" label="Name" variant="standard" className="w-full"/>
+                            <div>Hospital</div>
+                            <TextField data-test="dentist-hospital" inputRef={hospital} id="standard-basic" label="Hospital" variant="standard" className="w-full"/>
+                            <div>Address</div>
+                            <TextField data-test="dentist-address" inputRef={address} id="standard-basic" label="Address" variant="standard" className="w-full"/>
+                            <div>Expertist</div>
+                            <TextField data-test="dentist-expertist" inputRef={expertist} id="standard-basic" label="Expertist" variant="standard" className="w-full"/>
+                            <div>Tel.</div>
+                            <TextField data-test="dentist-tel" inputRef={tel} id="standard-basic" label="Tel" variant="standard" className="w-full"/>
+                            <div>Picture URL</div>
+                            <TextField data-test="dentist-picture" inputRef={picture} defaultValue={'https://drive.google.com/uc?export=view&id='} className="w-full" id="standard-basic" label="Picture" variant="standard" />
+                        </div>
                         
                     </div>
-                    <div className='w-[50%] h-[5%] bg-black absolute bottom-[5%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white'>
+                    <div className='w-[50%] h-[5%] bg-black absolute bottom-[2%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white bg-teal-500 hover:bg-teal-400'>
                         <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
                     </div>
                 </div>

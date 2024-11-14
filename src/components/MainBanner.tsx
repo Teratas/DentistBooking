@@ -21,10 +21,10 @@ export default function MainBanner() {
                             </div>
                         </div>
                     </div>
-                    <div className='absolute right-[10vw] top-[30vh] z-10'>
+                    <div className='absolute right-[10vw] top-[20vh] z-10'>
                         {/* <div className='w-[30vw]/ bg-black h-[30vh] absolute z-0'></div> */}
                         <div className='z-10'>
-                            <Image src={assets.mainImg} alt='' width={250} className='rounded-lg'/>
+                            <Image src={assets.mainImg} alt='' width={250} className=' w-[22vw] h-[65vh] rounded-lg hover:shadow-lg'/>
                         </div>
                      </div>
                 </div>

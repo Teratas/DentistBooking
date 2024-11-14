@@ -41,7 +41,7 @@ export default function MainPageNavigateBar(){
                 }
                  <Link onClick={() => {setPageState(2); pageStateRef.current = 2;}} className={`${styles.navigate}  py-3 px-5 text-center ${(pageState == 2) ? 'bg-black text-white rounded-full' : ''} `} href='/myProfile'>My-Profile</Link>
 
-                <Link onClick={() => {setPageState(0); pageStateRef.current = 0}} className={`  py-3 px-5 text-center ${(pageState == 0) ? 'bg-black text-white rounded-full' : ''}`} href='/main'>
+                <Link onClick={() => {setPageState(0); pageStateRef.current = 0}} className={` py-3 px-5 text-center ${(pageState == 0) ? 'bg-black text-white rounded-full ' : ''}`} href='/main'>
                     {/* <div className='bg-black h-full rounded-lg'> */}
                         Homepage
                     {/* </div> */}

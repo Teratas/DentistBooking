@@ -94,7 +94,7 @@ export default function EditDentistForm({ did, dentist }: { did: string, dentist
                 
             </div>
 
-            <div className='z-10 w-[30%] h-[40%] absolute rounded-xl bg-black left-[10%] top-[13%]'></div>
+            <div className='z-10 w-[30%] h-[40%] absolute rounded-xl bg-slate-200 left-[10%] top-[13%]'></div>
             <div className='absolute w-full h-[80%] z-0 bg-white top-[20%] rounded-lg'>
                 <div className='absolute top-[5%] left-[45%] w-[50%]  z-10'>
                     <div className='text-pretty flex flex-col space-y-2 w-full text-xl'>
