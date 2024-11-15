@@ -84,13 +84,13 @@ export default function MyBooking() {
     console.log(bookingData)
     const date = (bookingData ==undefined) ? '' : (new Date(bookingData.bookingDate).toISOString()).substring(0,10)
     return (
-        <div className=" absolute w-[50vw] h-[35vh] bg-white text-black top-[55vh] left-[50%] translate-x-[-50%] rounded-2xl hover:shadow-lg">
+        <div className="sm:text-md md:text-xl lg:text-2xl absolute w-[50vw] h-[35vh] bg-white text-black top-[55vh] left-[50%] translate-x-[-50%] rounded-2xl hover:shadow-lg">
 
                 {
                     bookingData ?
                     <div className='w-full h-full relative font-serif'>
                             <div>
-                                <div className='text-3xl text-center mt-2 p-3'>
+                                <div className='sm:text-2xl md:text-3xl lg:text-4xl text-center mt-2 p-3'>
                                     {`Appointment`}
                                 </div>
                                 <div className='mx-2 top-[20%] absolute text-lg p-5 pl-8'>
@@ -115,7 +115,7 @@ export default function MyBooking() {
                                         {`Address : ${bookingData.dentist.address}`}
                                     </div>
                                 </div>
-                                <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute right-2 top-1 rounded-lg mr-1'>
+                                <div className='z-20 w-[20%] h-[15%] text-white sm:text-md md:text-xl lg:text-2xl absolute right-2 top-1 rounded-lg mr-1'>
                                     {
                                         (isEdit == false)?
                                         <button onClick={handleDelete} name = "delete"className='z-20 absolute bg-slate-400 hover:bg-rose-500 w-full h-full rounded-xl'>Delete</button>
@@ -123,7 +123,7 @@ export default function MyBooking() {
                                         <button onClick={handleEditBooking} name = "confirm" className='z-20 absolute bg-teal-500 hover:bg-teal-400 w-full h-full rounded-xl'>Confirm</button>
                                     }
                                 </div>
-                                <div className='z-20 w-[20%] h-[15%] text-white text-2xl absolute left-2 top-1 ml-1'>
+                                <div className='z-20 w-[20%] h-[15%] text-white sm:text-md md:text-xl lg:text-2xl absolute left-2 top-1 ml-1'>
                                     <button name ='caned'onClick={() => {setIsEdit(!isEdit)}} className={`rounded-xl z-20 absolute ${(isEdit == true) ? 'bg-slate-400 hover:bg-rose-500':'bg-teal-500 hover:bg-teal-400'
                                     } w-full h-full`}>{`${(isEdit == true) ? 'Cancel' : 'Edit'}`}</button>
                                 </div>

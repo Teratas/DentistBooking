@@ -12,12 +12,14 @@ import getAllDentist from "@/libs/getAllDentist";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { setAllDentist } from "@/redux/features/slice";
+import { useRouter } from "next/navigation";
 export default function DentistPage(){
     // const dentistArray = await getAllDentist();
     // console.log(dentistArray)
     
     const role = sessionStorage.getItem('role')
     const [addState, setAddState] = useState(false);
+    const router = useRouter()
     return (
         <main className='text-black'>
             {/* <DentistCatalogItem /> */}
@@ -35,7 +37,7 @@ export default function DentistPage(){
                             <AddDentistForm />
                         </div>
                         <div className=' right-10 bottom-10 fixed text-lg hover:text-xl hover:text-slate-700'>
-                            <Link data-test = "add-dentist" href='/addDentistForm'>+Add Dentist</Link>
+                            <button data-test = "add-dentist" onClick={() => router.push('/addDentistForm')}>+Add Dentist</button>
                         </div>
                     </div>
                 :''

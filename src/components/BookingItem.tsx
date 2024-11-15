@@ -74,9 +74,9 @@ export default function BookingItem({bookingData}:{bookingData : bookingType}) {
 
                 {
                     bookingData ?
-                    <div className='w-full h-full relative font-serif'>
+                    <div className='w-full h-full relative font-serif sm:text-sm md:text-md lg:text-lg'>
                             <div>
-                                <div className='text-2xl text-center mt-2'>
+                                <div className='sm:text-lg md:text-xl lg:text-2xl text-center mt-2'>
                                     {`Appointment`}
                                 </div>
                                 <div className='mx-2 top-[20%] absolute p-[3%]'>

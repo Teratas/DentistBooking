@@ -77,7 +77,7 @@ export default function RegisterForm() {
                             <TextField data-test="password" id="filled-basic" type="password" inputRef={passwordRef}
                                 label="Password" variant="filled" className='w-full' />
                             
-                            <button data-test="login-button" className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={handleSubmit}>Sign In</button>
+                            <button data-test="login-button" className='bg-cyan-500 rounded-lg hover:bg-cyan-400 text-white mt-10 w-[100%] h-[50px]' onClick={handleSubmit}>Sign In</button>
 
                             
                             

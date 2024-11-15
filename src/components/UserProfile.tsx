@@ -19,9 +19,9 @@ export default function UserProfile() {
                 <div className='font-serif absolute w-full h-[100%] bg-white rounded-2xl'>
                     <div className=' top-[20%] left-[40%] absolute'>
                         
-                        <div className='text-4xl text-bold'>{name}</div>
-                        <div className='text-2xl'>{email}</div>
-                        <div className='text-2xl'>{tel}</div>
+                        <div className='sm:text-xl md:text-2xl lg:text-4xl text-bold'>{name}</div>
+                        <div className='sm:text-md md:text-xl lg:text-2xl'>{email}</div>
+                        <div className='sm:text-md md:text-xl lg:text-2xl'>{tel}</div>
                     </div>
                     <div className='absolute w-[33%] h-[90%] left-5 top-[50%] translate-y-[-50%] rounded-2xl'>
                         {

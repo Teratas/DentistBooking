@@ -24,7 +24,7 @@ export default function MainBanner() {
                     <div className='absolute right-[10vw] top-[20vh] z-10'>
                         {/* <div className='w-[30vw]/ bg-black h-[30vh] absolute z-0'></div> */}
                         <div className='z-10'>
-                            <Image src={assets.mainImg} alt='' width={250} className=' w-[22vw] h-[65vh] rounded-lg hover:shadow-lg'/>
+                            <Image src={assets.deknom} alt='' width={250} className=' sm:w-[45vw] sm:h-[60vh] lg:h-[60vh] md:w-[34vw] md:h-[60vh] lg:w-[23vw] rounded-lg hover:shadow-lg'/>
                         </div>
                      </div>
                 </div>

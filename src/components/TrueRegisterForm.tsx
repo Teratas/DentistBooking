@@ -80,7 +80,7 @@ export default function TrueRegisterForm() {
                             <TextField id="filled-basic" type='password' inputRef={passwordRef}
                             label="Password" variant="filled" className='w-full'/>
 
-                            <button className='bg-cyan-400 mt-10 w-[100%] h-[50px]' onClick={onSubmit}>Sign In</button>
+                            <button className='bg-cyan-500 hover:bg-cyan-400 rounded-lg mt-10 text-white w-[100%] h-[50px]' onClick={onSubmit}>Sign Up</button>
                             
 
 

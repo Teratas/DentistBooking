@@ -69,7 +69,7 @@ export default function AddDentistForm() {
                 <div className="text-2xl absolute top-[13%]  translate-x-[-50%] left-[50%]"> Add Dentist Form</div>
                 <div className=' absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] bg-white w-[48vw] h-[63vh] py-2 rounded-xl'>
                     
-                    <div className='flex flex-col absolute w-[80%] h-[10%]'>
+                    <div className='flex top-[10%] flex-col absolute w-[80%] h-[10%]'>
                         <div className="translate-x-[10%] m-1 w-full h-full">
                             <div>Dentists Name</div>
                             <TextField data-test="dentist-name" inputRef={name} id="standard-basic" label="Name" variant="standard" className="w-full"/>
@@ -86,8 +86,8 @@ export default function AddDentistForm() {
                         </div>
                         
                     </div>
-                    <div className='w-[50%] h-[5%] bg-black absolute bottom-[2%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white bg-teal-500 hover:bg-teal-400'>
-                        <button data-test="add-dentist-button"type="submit" onClick={handleSubmit}>Add Dentist</button>
+                    <div className='w-[50%] h-[5%]  bg-black text-center align-bottom justify-center text-xl text-align absolute bottom-[4%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white bg-teal-500 hover:bg-teal-400'>
+                        <button data-test="add-dentist-button"type="submit" onClick={handleSubmit} >Add Dentist</button>
                     </div>
                 </div>
             </div>
