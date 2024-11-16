@@ -25,7 +25,6 @@ export default function TrueRegisterForm() {
     const telRef = useRef<HTMLInputElement>(null)
     const nameRef= useRef<HTMLInputElement>(null);
 
-    // const = (email : string, password : stromg) 
     const onSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const name = nameRef.current?.value
@@ -36,13 +35,7 @@ export default function TrueRegisterForm() {
             alert('Cannot Create your Account')
             return;
         }
-        // console.log(name)
-        console.log({
-            name,
-            email,
-            tel,
-            password
-        })
+        
        const res = await userRegister(name, email, tel, password);
        console.log(res) 
        if(res.success){
@@ -51,7 +44,6 @@ export default function TrueRegisterForm() {
         else{
             alert('Sorry Failed to Create Your Account Please Try to Change your Email')
         }
-        // dispatch(setToken(await user.token));
     }
     return (
         <div className='z-20 cursor-default select-none font-serif text-black w-full h-full absolute bg-white'>

@@ -21,12 +21,12 @@ export default function DentistPage(){
     const [addState, setAddState] = useState(false);
     const router = useRouter()
     return (
-        <main className='text-black'>
+        <main className=' text-black w-[100vw] h-[100vh] bg-gradient-to-r from-stone-400 to-teal-200'>
             {/* <DentistCatalogItem /> */}
-            <div className='w-[100vw] h-[100vh] z-0 absolute bg-gradient-to-r from-stone-400 to-teal-200'>
+            <div className='w-[100vw] h-full z-0 absolute '>
 
             </div>
-            <div className='mt-[60px] absolute'>
+            <div className='mt-[60px] absolute '>
                 <DentistCatalog />
             </div>
 

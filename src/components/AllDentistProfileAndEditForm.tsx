@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import Link from "next/link";
+import { useRef } from "react";
 import { dataType } from "@/libs/updateDentistProfile";
 import DentistProfile from "./DentistProfile";
 import EditDentistForm from "./EditDentistForm";

@@ -23,9 +23,7 @@ export default function MyBooking() {
     // const bookingData = await getAllBooking(token || '');
     // const bookingArray: Array<bookingType> = bookingData.data;
     const bookingArray : bookingType[] = useAppSelector((state) => state.slice.allBooking)
-    // console.log(bookingArray);
-    const userName = sessionStorage.getItem('name')
-    const dentistArray : dataType[] = useAppSelector(state => state.slice.allDentist)
+
     const userId = sessionStorage.getItem('userId')
     const userBookings : bookingType[] = bookingArray
         .filter((data) => data.user === userId)

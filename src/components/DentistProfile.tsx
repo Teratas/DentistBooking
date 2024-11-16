@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useAppSelector } from "@/redux/store";
 import Popup from "./Popup";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 export interface dentistProfileType {
     name : string,
     hospital : string,
@@ -27,31 +29,43 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
     // const allDentistArray : dataType[]= useAppSelector(state => state.slice.allDentist)
     // const dentistData= allDentistArray.filter((data) => data.id === did)
     // const dentist = dentistData[0];
+    document.title = 'Dentist Profile'
+    
     console.log(dentist)
     const dispatch = useDispatch<AppDispatch>()
     const token = sessionStorage.getItem('token')
     const picture = dentist.picture
+    const router = useRouter()
     const deleteDentist = async () => {
         const res = await deleteDentistProfile(did,(token == null) ? '' : token)
-        dispatch(removeDentist(did));
-        dispatch(removeDentistAttackBooking(did));
-        alert(res)
-        location.href = "http://localhost:3000/dentistPage";
-        
+        if(res.success){
+            dispatch(removeDentist(did));
+            dispatch(removeDentistAttackBooking(did));
+            alert('Delete Success')
+        }
+        else{ 
+            alert('Failed to Deleted')
+            return;
+        }
+        // location.href = "http://localhost:3000/dentistPage";
+        router.push('/dentistPage')
         
     }
-
+    const bookingDate = useRef<HTMLInputElement>(null)
     const allBooking = useAppSelector(state => state.slice.allBooking)
     const user_id = sessionStorage.getItem('userId')
     const myBooking = allBooking.filter((data) => data.user == user_id)
     const isBook = (myBooking.length == 0) ? false : true;
-    const bookingDate = new Date('2003-10-12')
+    const defaultDate = (myBooking.length == 0) ? new Date().toISOString().substring(0,10) : myBooking[0].bookingDate.substring(0,10)
+    
     const handleCreateBooking = async () => {
+        // alert(myBooking[0].bookingDate)
+
         if(isBook){
             alert('Already Have Booking')
             return;
         }
-        const res = await createNewBookingDid(did, token ?? '', bookingDate.toISOString())
+        const res = await createNewBookingDid(did, token ?? '', bookingDate.current?.value ?? defaultDate)
         let newRes : bookingType = res.data;
 
         newRes.dentist = dentist
@@ -73,17 +87,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                     <div className='top-[40%] left-[45%] absolute'>
                         <div className='flex flex-row'>
                             <div className='text-4xl font-bold'>{`${dentist.name ?? 'No Data'}`}</div>
-                            {/* {
-                                (role == 'admin') ?
-                            <div className='px-2 w-[50%] h-[20%]'>
-                                    <Link href={`/editDentistForm/${did}`} className=' rounded-lg'>
-                                    <div className='text-center bg-cyan-300 w-full h-full rounded-lg'>
-                                    Edit
-                                    </div>
-                                    </Link>
-                            </div>
-                            :''
-                            } */}
+                            
                         </div>
                     </div>
                     <div className='top-[70%] left-[45%] text-2xl absolute'>
@@ -121,7 +125,7 @@ export default function DentistProfile({did, dentist} : {did : string, dentist:d
                             <div>
                                 {`Address: ${dentist.address ?? 'No Data'}`}
                             </div>
-                
+                            <input ref={bookingDate} defaultValue={defaultDate} type="date" />
                         </div>
                 
                     </div>

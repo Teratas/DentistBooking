@@ -12,7 +12,7 @@ export interface user {
 export default function Home() {
     const router = useRouter()
     router.push('/main')
-   
+
     return (
     <main className='text-black'>
 

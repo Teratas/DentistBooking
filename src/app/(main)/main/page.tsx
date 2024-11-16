@@ -2,7 +2,7 @@ import MainBanner from "@/components/MainBanner";
 import { Suspense } from "react";
 import { CircularProgress } from "@mui/material";
 export default function MainPage() {
-
+   
 
     return (
         <main className='text-black'>

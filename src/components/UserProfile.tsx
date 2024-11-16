@@ -12,7 +12,7 @@ export default function UserProfile() {
     const email = sessionStorage.getItem('email') ?? ''
     const tel = sessionStorage.getItem('tel') ?? ''
     const role = sessionStorage.getItem('role') ?? 'user'
-    
+    // document.title ='My Profile'
 
     return (
             <div className='flex flex-row absolute  w-[50vw] h-[30vh] left-[50%] top-[18vh] translate-x-[-50%] rounded-3xl hover:shadow-lg'>

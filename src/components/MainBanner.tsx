@@ -2,6 +2,7 @@ import Image from "next/image";
 import stypes from './animation.module.css'
 import { assets } from "../../public/images/assets";
 export default function MainBanner() {
+    
     return (
         <div data-test = "banner" className='text-black'>
                 <div className='z-0 relative w-[100vw] h-[100vh] w-[100vw]'>

@@ -2,6 +2,7 @@ import DentistProfile from "@/components/DentistProfile";
 import getDentistProfile from "@/libs/getDentistProfile";
 import createNewBookingDid from "@/libs/createNewBookingDid";
 import { Button } from "@mui/material";
+import { useRef } from "react";
 import AllDentistProfileAndEditForm from "@/components/AllDentistProfileAndEditForm";
 export default function DentistDetailPage({params} : {params : {did : string}}) {
     // const dentistData = await getDentistProfile(params.did);
@@ -12,7 +13,7 @@ export default function DentistDetailPage({params} : {params : {did : string}}) 
     // alert(1)
     
     return (
-        <main className='z-0 text-black relative w-[100vw] h-[100vh]'>
+        <main title='dentist' className='z-0 text-black relative w-[100vw] h-[100vh]'>
             <div className='w-[100vw] h-[100vh] bg-gradient-to-r from-teal-100 to-stone-400 absolute'></div>
 
 
