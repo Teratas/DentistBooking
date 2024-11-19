@@ -6,10 +6,6 @@ import { useAppSelector } from "@/redux/store";
 // import ClientToReceived from "@/components/ClientToReceived";
 // import MyBooking from "@/components/myBooking";
 export default function BookingPage() {
-    // const userIdRef = useRef(sessionStorage.getItem('userId'));
-    // const tokenRef = useRef(sessionStorage.getItem('token'))
-    // const token = tokenRef.current
-    // const userId = userIdRef.current
     
 
     return (

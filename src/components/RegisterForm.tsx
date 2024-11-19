@@ -25,10 +25,13 @@ export default function RegisterForm() {
     const router = useRouter()
     const handleSubmit = useCallback(async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        const email = emailRef.current?.value ?? '';
-        const password = passwordRef.current?.value ?? '';
+        const email = emailRef.current?.value;
+        const password = passwordRef.current?.value;
         console.log({ email, password });
-
+        if(!email || !password){
+            alert('Please enter your account information')
+            return;
+        }
         try {
             const user = await userLogin(email, password);
             const token = user.token;
@@ -53,6 +56,8 @@ export default function RegisterForm() {
             router.push('/main')
         } catch (error) {
             console.error('Error during login:', error);
+            alert('Failed to Login')
+            return;
         }
     }, [dispatch]);
 
