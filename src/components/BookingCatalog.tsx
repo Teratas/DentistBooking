@@ -30,7 +30,7 @@ export default function BookingCatalog(){
             }
         }
         getData()
-    })
+    },[])
     return (
         <div className='relavitve w-[100vw] h-full'>
             <div className='absolute w-[95vw] h-full left-[3vw]'>

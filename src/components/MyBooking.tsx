@@ -46,7 +46,7 @@ export default function MyBooking() {
             }
         }
         getData()
-    })
+    },[])
     
     const userId = sessionStorage.getItem('userId')
     const userBookings : bookingType[] = bookingArray
