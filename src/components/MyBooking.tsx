@@ -16,14 +16,38 @@ export interface bookingType {
     dentist: dataType;
     _id? : string
 }
-import { removeBooking } from "@/redux/features/slice";
+import { removeBooking, setMyBooking } from "@/redux/features/slice";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 export default function MyBooking() {
     // const bookingData = await getAllBooking(token || '');
     // const bookingArray: Array<bookingType> = bookingData.data;
     const bookingArray : bookingType[] = useAppSelector((state) => state.slice.allBooking)
-
+    const dispatch = useDispatch<AppDispatch>()
+    const token = sessionStorage.getItem('token')
+    useEffect(() => {
+        if(!token){
+            alert('token missing')
+            return;
+        }
+        const getData = async () => {
+            if(sessionStorage.getItem('setupBooking') == '0'){
+                
+                const res = await getAllBooking(token)
+                if(res.success){
+                    // alert('Success')
+                    dispatch(setMyBooking(res.data))
+                }
+                else{
+                    alert('failed')
+                }
+                sessionStorage.setItem('setupBooking', '1')
+            }
+        }
+        getData()
+    })
+    
     const userId = sessionStorage.getItem('userId')
     const userBookings : bookingType[] = bookingArray
         .filter((data) => data.user === userId)
@@ -31,10 +55,8 @@ export default function MyBooking() {
     const [isEdit, setIsEdit] = useState(false)
     const newAppointmentRef = useRef<HTMLInputElement>(null)
     const bookingData : bookingType = userBookings[0]
-    // const dentistData : dataType = bookingData.dentist
-    // const handleDelete = async () => {
-    //     const res = await deleteBookingById()
-    // }
+    
+
     const handleEditBooking = async () => {
         if(userId == null){
             alert('Cannot Find UserID')
@@ -58,8 +80,7 @@ export default function MyBooking() {
             alert('Failed to edit this booking')
         }
     }
-    const token = sessionStorage.getItem('token');
-    const dispatch = useDispatch<AppDispatch>()
+
     const handleDelete = async () => {
         if(!bookingData._id){
             alert('Booking Data not found')
