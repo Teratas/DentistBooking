@@ -86,7 +86,7 @@ export default function AddDentistForm() {
                         </div>
                         
                     </div>
-                    <div className='w-[50%] h-[5%]  bg-black text-center align-bottom justify-center text-xl text-align absolute bottom-[4%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white bg-teal-500 hover:bg-teal-400'>
+                    <div className='w-[50%] h-[5%]  bg-black text-center align-bottom justify-center text-xl text-align absolute bottom-[3%] left-[50%] translate-x-[-50%] rounded-lg text-center text-white bg-teal-500 hover:bg-teal-400'>
                         <button data-test="add-dentist-button"type="submit" onClick={handleSubmit} >Add Dentist</button>
                     </div>
                 </div>
