@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import createNewDentist from "@/libs/createNewDentist";
 import { dataType } from "@/libs/updateDentistProfile";
 import { addDentist } from "@/redux/features/slice";
+import { useRouter } from "next/navigation";
 export default function AddDentistForm() {
     
     
@@ -17,7 +18,7 @@ export default function AddDentistForm() {
     const hospital =useRef<HTMLInputElement>(null)
 
     const address = useRef<HTMLInputElement>(null)
-
+    const router = useRouter();
     const expertist = useRef<HTMLInputElement>(null)
     const dispatch = useDispatch()
     const tel = useRef<HTMLInputElement>(null)
@@ -59,9 +60,7 @@ export default function AddDentistForm() {
             alert('Sorry Failed to add Dentist')
             return;
         }
-        console.log(res)
-        console.log(newData)
-        location.href = "http://localhost:3000/dentistPage";
+        router.push('/dentistPage')
     }
     return (
         <div className='font-serif absolute w-[100vw] h-[100vh]'>
